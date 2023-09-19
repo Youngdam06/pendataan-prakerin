@@ -91,11 +91,11 @@
                       @csrf
                         <label class="form-label" for="email">Nama</label>
                       <div class="input-group input-group-outline my-3">
-                        <input type="nama" class="form-control is-invalid" name="name" id="name">
+                        <input type="name" class="form-control is-invalid" name="nama" id="name">
                       </div>
                         <label class="form-label" for="email">Nomor Telepon</label>
                       <div class="input-group input-group-outline my-3">
-                        <input type="tel" class="form-control is-invalid" name="notelp" id="notelp">
+                        <input type="tel" class="form-control is-invalid" name="no_telp" id="notelp">
                       </div>
                         <label class="form-label" for="email">Email</label>
                       <div class="input-group input-group-outline my-3">

@@ -55,9 +55,9 @@
             <div class="row">
               <div class="col-lg-4 col-md-8 col-12 mx-auto mb-1">
                 {{-- apabila berhasil register --}}
-                @if (session()->has('sukses'))
+                @if (session()->has('berhasil'))
                 <div class="alert alert-success alert-dismissable fade show text-light">
-                  {{ session()->get('sukses') }}
+                  {{ session()->get('berhasil') }}
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
 
                   </button>

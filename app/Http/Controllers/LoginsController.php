@@ -17,7 +17,7 @@ class LoginsController extends Controller
     }
 
     public function postLogin(Request $request) {
-        Session::flash('loginError', 'Gagal Sign in, masukkan data dengan benar!');
+        Session::flash('loginError', 'Gagal Sign in, periksa kembali email dan password anda!');
         $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required',
@@ -46,10 +46,11 @@ class LoginsController extends Controller
 
     public function store(Request $request) 
 {
+    Session::flash('berhasil', 'Anda telah berhasil register!');
     // Validasi data yang dikirimkan oleh pengguna
     $validatedData = $request->validate([
         'nama' => 'required',
-        'tel' => 'required',
+        'no_telp' => 'required',
         'email' => 'required',
         'password' => 'required'
     ]);
