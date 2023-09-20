@@ -45,23 +45,23 @@ class LoginsController extends Controller
     }
 
     public function store(Request $request) 
-{
-    Session::flash('berhasil', 'Anda telah berhasil register!');
-    // Validasi data yang dikirimkan oleh pengguna
-    $validatedData = $request->validate([
-        'nama' => 'required',
-        'no_telp' => 'required',
-        'email' => 'required',
-        'password' => 'required'
-    ]);
+    {
+        Session::flash('berhasil', 'Anda telah berhasil register!');
+        // Validasi data yang dikirimkan oleh pengguna
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'no_telp' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
 
-    // Mengenkripsi password sebelum menyimpannya
-    $validatedData['password'] = Hash::make($validatedData['password']);
+        // Mengenkripsi password sebelum menyimpannya
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
-    // Membuat admin baru dengan data yang sudah divalidasi
-    Admin::create($validatedData);
+        // Membuat admin baru dengan data yang sudah divalidasi
+        Admin::create($validatedData);
 
-    // Jika berhasil membuat admin, arahkan ke halaman signin
-    return redirect('signin');
-}
+        // Jika berhasil membuat admin, arahkan ke halaman signin
+        return redirect('signin');
+    }
 }

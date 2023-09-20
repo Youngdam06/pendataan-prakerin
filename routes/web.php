@@ -19,6 +19,6 @@ Route::get('/signup', [LoginsController::class, 'indexReg']);
 Route::post('/post', [LoginsController::class, 'postLogin'])->name("postLog");
 Route::post('/storeReg', [LoginsController::class, 'store'])->name("postReg");
 Route::get('/', function() {
-return view('/welcome');
+return view('/layout');
 });
 
