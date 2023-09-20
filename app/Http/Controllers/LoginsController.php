@@ -64,4 +64,12 @@ class LoginsController extends Controller
         // Jika berhasil membuat admin, arahkan ke halaman signin
         return redirect('signin');
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('signin');
+    }
 }

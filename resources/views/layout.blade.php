@@ -94,26 +94,14 @@
             
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                    
-                </div>
-                @auth
-                <li class="nav-item d-flex align-items-center" method="POST">
-                    <span class="d-sm-inline d-none"></span>
-                    <a href="/logouts" class="nav-link text-body font-weight-bold px-0">
-                    <i class="fa fa-user me-sm-1"></i>
-                    <span class="d-sm-inline d-none">Sign out</span>
-                    </a>
-                </li>
-                    @else
-                <li class="nav-item d-flex align-items-center" method="POST">
-                    <span class="d-sm-inline d-none"></span>
-                    <a href="/login" class="nav-link text-body font-weight-bold px-0">
+                    <li class="nav-item d-flex align-items-center" method="POST">
+                        <span class="d-sm-inline d-none"></span>
+                        <a href="/logout" class="nav-link text-body font-weight-bold px-0">
                         <i class="fa fa-user me-sm-1"></i>
-                        <span class="d-sm-inline d-none">Sign in</span>
-                    </a>
+                        <span class="d-sm-inline d-none">Sign out</span>
+                        </a>
                     </li>
-                </li>
-                @endauth
+                </div>
                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                 <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                     <div class="sidenav-toggler-inner">
@@ -134,12 +122,6 @@
         <div class="ms-md-auto pe-md-3 d-flex align-items-center">
         </div>
         <ul class="navbar-nav  justify-content-end">
-        <li class="nav-item d-flex align-items-center">
-            <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
-            <i class="fa fa-user me-sm-1"></i>
-            <span class="d-sm-inline d-none">Sign In</span>
-            </a>
-        </li>
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
             <div class="sidenav-toggler-inner">
@@ -169,8 +151,6 @@
         {{-- konten --}}
         @yield('konten')
         {{-- end konten --}}
-        {{-- setting tampilan(opsional) --}}
-        {{-- setting tampilan(opsional) --}}
     <!--   Core JS Files   -->
     <script src="/assets/js/core/popper.min.js"></script>
     <script src="/assets/js/core/bootstrap.min.js"></script>
