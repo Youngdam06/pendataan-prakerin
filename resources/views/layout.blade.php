@@ -32,12 +32,12 @@
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" >
             <img src="/assets/img/icon1.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold text-white">Pendataan Prakerin</span>
+            <span class="ms-1 font-weight-bold text-white"> (nama user)!</span>
         </a>
         </div>
     
     
-        <hr class="horizontal light mt-0 mb-2">
+        <hr class="horizontal light mt-2 mb-2">
     
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
@@ -49,34 +49,47 @@
                 <i class="material-icons opacity-10">dashboard</i>
                 </div>
             
-            <span class="nav-link-text ms-1">Menu</span>
+            <span class="nav-link-text ms-1">Dashboard</span>
             </a>
         </li>
-        {{-- dropdown link halaman pemasukan data --}}
+        {{-- dropdown link halaman kelola data --}}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">table_view</i>
+                </div>
+                <span class="nav-link-text ms-1">Kelola Data</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="">Kelola Data Siswa</a></li>
+                <li><a class="dropdown-item" href="">Kelola Data Pembimbing</a></li>
+                <li><a class="dropdown-item" href="">Kelola Data Instansi</a></li>
+                <li><a class="dropdown-item" href="">Kelola Data Prakerin</a></li>
+            </ul>
+        </li>
+        {{-- dropdown link halaman laporan data --}}
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Tambah Data</span>
+            <span class="nav-link-text ms-1">Kelola Laporan</span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="">Laporan Pemasukan</a></li>
-            <li><a class="dropdown-item" href="">Laporan Pengeluaran</a></li>
-            <li><a class="dropdown-item" href="">Laporan Saldo</a></li>
+            <li><a class="dropdown-item" href="">Laporan Data Siswa</a></li>
+            <li><a class="dropdown-item" href="">Laporan Data Pembimbing</a></li>
+            <li><a class="dropdown-item" href="">Laporan Data Instansi</a></li>
+            <li><a class="dropdown-item" href="">Laporan Data Prakerin</a></li>
             </ul>
         </li>
-
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link text-white " href="/total">
-            
                 <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">table_view</i>
                 </div>
-            
-            <span class="nav-link-text ms-1">Laporan Total</span>
+            <span class="nav-link-text ms-1">Laporan Data</span>
             </a>
-        </li>
+        </li> --}}
         </ul>
         </div>
     </aside>
@@ -102,21 +115,18 @@
                         </a>
                     </li>
                 </div>
-                <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+            </div>
+            </div>
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                 <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                    <div class="sidenav-toggler-inner">
+                  <div class="sidenav-toggler-inner">
                     <i class="sidenav-toggler-line"></i>
                     <i class="sidenav-toggler-line"></i>
                     <i class="sidenav-toggler-line"></i>
-                    </div>
+                  </div>
                 </a>
-                </li>
-                <li class="nav-item px-3 d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body p-0">
-                    <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-            </div>
-            </div>
-            
+              </li>
+              <li class="nav-item px-3 d-flex align-items-center">
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
         <div class="ms-md-auto pe-md-3 d-flex align-items-center">

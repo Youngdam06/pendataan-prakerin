@@ -18,6 +18,7 @@ class LoginsController extends Controller
 
     public function postLogin(Request $request) {
         Session::flash('loginError', 'Gagal Sign in, periksa kembali email dan password anda!');
+        Session::flash('loginBerhasil', 'Selamat datang!');
         $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required',

@@ -62,7 +62,7 @@
 
                   </button>
                 </div>
-            @endif
+                @endif
                 {{-- apabila gagal login --}}
                 @if (session()->has('loginError'))
                 <div class="alert alert-danger alert-dismissable fade-show text-light">
