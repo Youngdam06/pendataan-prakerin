@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/public/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="/public/assets/img/icon2.png">
     <title>
-        Main Dashboard
+        Pendataan Prakerin
     </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -32,7 +32,15 @@
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" >
             <img src="/assets/img/icon1.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold text-white"> (nama user)!</span>
+            @if (Auth::guard('admin')->check())
+            @if (Auth::guard('admin')->user()->nama)
+                <span class="ms-3 font-weight-bold text-white mr-5">Hai, {{ Auth::guard('admin')->user()->nama }}!</span>
+            @else
+                <span class="ms-1 font-weight-bold text-white">Nama Tidak Tersedia</span>
+            @endif
+            @else
+            <span class="ms-1 font-weight-bold text-white">Pengguna Belum Login</span>
+            @endif
         </a>
         </div>
     
@@ -63,7 +71,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="">Kelola Data Siswa</a></li>
                 <li><a class="dropdown-item" href="">Kelola Data Pembimbing</a></li>
-                <li><a class="dropdown-item" href="">Kelola Data Instansi</a></li>
+                <li><a class="dropdown-item" href="datainstansi">Kelola Data Instansi</a></li>
                 <li><a class="dropdown-item" href="">Kelola Data Prakerin</a></li>
             </ul>
         </li>

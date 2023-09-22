@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -17,12 +18,13 @@ class UserSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'adam',
+                'nama' => 'adam',
+                'no_telp' => '08812812312',
                 'email' => 'adam@gmail.com',
                 'password' => Hash::make('adamganteng'),
             ]
         ];
 
-        User::insert($data);
+        Admin::insert($data);
     }
 }
