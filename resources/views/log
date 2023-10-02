@@ -21,7 +21,7 @@
       <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
       <link rel="icon" type="image/png" href="/assets/img/icon1.png">
       <title>
-        Register
+        Login
       </title>
       <!--     Fonts and icons     -->
       <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -55,14 +55,14 @@
             <div class="row">
               <div class="col-lg-4 col-md-8 col-12 mx-auto mb-1">
                 {{-- apabila berhasil register --}}
-                @if (session()->has('sukses'))
+                @if (session()->has('berhasil'))
                 <div class="alert alert-success alert-dismissable fade show text-light">
-                  {{ session()->get('sukses') }}
+                  {{ session()->get('berhasil') }}
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
 
                   </button>
                 </div>
-            @endif
+                @endif
                 {{-- apabila gagal login --}}
                 @if (session()->has('loginError'))
                 <div class="alert alert-danger alert-dismissable fade-show text-light">
@@ -75,7 +75,7 @@
                 <div class="card z-index-0 fadeIn3 fadeInBottom">
                   <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1">
-                      <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Register</h4>
+                      <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign in</h4>
                       <div class="row mt-3">
                         <div class="col-2 text-center ms-auto">
                         </div>
@@ -87,21 +87,9 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <form role="form" class="text-start" action="{{route("postReg")}}" method="POST">
+                    <form role="form" class="text-start" action="{{route("postLog")}}" method="POST">
                       @csrf
-                        <label class="form-label" for="email">Nama</label>
-                      <div class="input-group input-group-outline my-3">
-                        <input type="name" class="form-control is-invalid" name="nama" id="name">
-                      </div>
-                        <label class="form-label" for="email">Nomor Telepon</label>
-                      <div class="input-group input-group-outline my-3">
-                        <input type="number" class="form-control is-invalid" name="no_telp" id="notelp">
-                      </div>
                         <label class="form-label" for="email">Email</label>
-                        {{-- error email --}}
-                        @error('email')
-                          <div class="alert alert-danger text-white">{{ $message }}</div>
-                        @enderror
                       <div class="input-group input-group-outline my-3">
                         <input type="email" class="form-control is-invalid" name="email" id="email">
                       </div>
@@ -110,9 +98,9 @@
                         <input type="password" class="form-control is-invalid" name="password" id="password">
                       </div>
                       <div class="text-center">
-                        <button type="submit" name="submit" class="btn bg-gradient-info w-100 my-4 mb-2">Register</button>
+                        <button type="submit" name="submit" class="btn bg-gradient-info w-100 my-4 mb-2">Sign in</button>
                       </div>
-                      <small class="d-block mt-3">Sudah punya akun? Silahkan <a class="text-danger" href="/signin"> Sign in
+                      <small class="d-block mt-3">Belum punya akun? Silahkan <a class="text-danger" href="/signup"> Register
                       </a></small>
                     </form>
                   </div>
@@ -136,15 +124,6 @@
       <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
       <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
       <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const errorMessage = document.getElementById('error-message');
-          const closeErrorButton = document.getElementById('close-error');
-
-          // Sembunyikan pesan error saat tombol "X" diklik
-          closeErrorButton.addEventListener('click', function () {
-              errorMessage.style.display = 'none';
-          });
-        });
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
           var options = {

@@ -6,7 +6,7 @@
         <div class="col-lg-4 col-md-8 col-12 mx-auto">
           <div class="card z-index-0 fadeIn3 fadeInBottom">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+              <div class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1">
                 <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">ISI DATA</h4>
                 <div class="row mt-3">
                   <div class="col-2 text-center ms-auto">
@@ -18,17 +18,6 @@
                 </div>
               </div>
             </div>
-                  @if ($errors->any())
-          <div class="alert alert-danger">
-              <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-            
             <div class="card-body">
               <form role="form" action="{{ route('datainstansi.store') }}" class="text-start" method="POST">
                 @csrf
@@ -41,11 +30,15 @@
                   <input type="number" name="no_telp" class="form-control">
                 </div>
                 <label class="form-label">Email</label>
+                {{-- tampil error email --}}
+                @error('email')
+                  <div class="alert alert-danger text-white">{{ $message }}</div>
+                @enderror
                 <div class="input-group input-group-outline my-3">
                   <input type="email" name="email" class="form-control" id="dengan-rupiah">
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Tambahkan</button>
+                  <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2">Tambahkan</button>
                 </div>
               </form>
             </div>
@@ -63,4 +56,22 @@
     </footer>
   </div>
 </main>
+<script>
+  // fungsi untuk menambahkan pesan alert, jika ada item yang kosong
+  document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('form');
+
+      form.addEventListener('submit', function (event) {
+          const namaInstansi = form.querySelector('[name="nama_instansi"]');
+          const noTelp = form.querySelector('[name="no_telp"]');
+          const email = form.querySelector('[name="email"]');
+
+          if (!namaInstansi.value || !noTelp.value || !email.value) {
+              event.preventDefault(); // Mencegah pengiriman form
+              alert('Harap isi semua field sebelum menambahkan data.');
+          }
+      });
+  });
+</script>
+
 @endsection

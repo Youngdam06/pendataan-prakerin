@@ -19,24 +19,16 @@ class LoginsController extends Controller
     public function postLogin(Request $request) {
         Session::flash('loginError', 'Gagal Sign in, periksa kembali email dan password anda!');
         Session::flash('loginBerhasil', 'Selamat datang!');
-        $request->validate([
-            'email' => 'required|email:dns',
+        $credentials = $request->validate([
+            'email' => 'required',
             'password' => 'required',
-        ], [
-            'email.required' => 'Email wajib diisi!',
-            'password.required' => 'Password wajib diisi!',
         ]);
 
-        $info = [
-            'email'=> $request->email,
-            'password'=> $request->password,
-        ];
-
-        if(Auth::guard('admin')->attempt($info)) {
+        if(Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect('/');
         }else{
-            return redirect('signin');
+            return redirect('/signin');
         }
     }
 
@@ -52,9 +44,17 @@ class LoginsController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required',
             'no_telp' => 'required',
-            'email' => 'required',
-            'password' => 'required'
+            'email' => 'required|email|unique:admin,email', // Menambahkan validasi unik untuk bidang email
+            'password' => 'required',
+        ], [
+            'nama.required' => 'Nama wajib diisi.',
+            'no_telp.required' => 'Nomor telepon wajib diisi.',
+            'email.required' => 'Alamat email wajib diisi.',
+            'email.email' => 'Alamat email tidak valid.',
+            'email.unique' => 'Alamat email sudah digunakan.', // Pesan kustom jika email sudah ada dalam database
+            'password.required' => 'Password wajib diisi.',
         ]);
+        
 
         // Mengenkripsi password sebelum menyimpannya
         $validatedData['password'] = Hash::make($validatedData['password']);

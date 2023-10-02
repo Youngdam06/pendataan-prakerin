@@ -12,7 +12,7 @@
           <div class="table-responsive p-0">
             <table class="table align-items-center justify-content-center mb-0">
                 @if ($message = Session::get('success'))
-                <div class="alert alert-primary alert-dismissable text-white" >
+                <div class="alert alert-success alert-dismissable text-white" >
                     <p>{{ $message }}</p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 @endif
                 
@@ -37,7 +37,7 @@
                                 <a class="btn btn-info" href="{{ route('datainstansi.edit',$data->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger" id="btnDelete">Delete</button>
                             </div>
                         </form>
                     </td>
@@ -61,7 +61,29 @@
   </div>
   
   </main>
-{{-- <div class="container">
-    <a class="btn bg-primary btn-dark" href="{{ route('Instansi') }}">Tambah data</a>
-</div> --}}
+{{-- javascript --}}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+        // Mengambil semua tombol delete dengan ID "btnDelete"
+        var deleteButtons = document.querySelectorAll("#btnDelete");
+
+        deleteButtons.forEach(function (button) {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                // Tampilkan prompt konfirmasi
+                var confirmation = confirm("Apakah Anda yakin ingin menghapus data ini?");
+
+                if (confirmation) {
+                    // Jika pengguna mengonfirmasi, lanjutkan dengan mengirimkan formulir
+                    // Dalam hal ini, formulir di dalam loop di atas
+                    button.closest("form").submit();
+                } else {
+                    // Jika pengguna membatalkan, tidak ada tindakan yang diambil
+                    alert("Penghapusan dibatalkan.");
+                }
+            });
+        });
+    });
+</script>
 @endsection

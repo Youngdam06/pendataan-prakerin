@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\Instansi;
+use App\Models\Pembimbing;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginsController;
 use App\Http\Controllers\InstansiController;
-use App\Models\Instansi;
+use App\Http\Controllers\PembimbingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +32,5 @@ Route::get('/logout', [LoginsController::class, 'logout']);
 // Route::post('/storeInstansi', [InstansiController::class, 'store'])->name('storeInstansi');
 // Route::get('/tambahInstansi', [InstansiController::class, 'create'])->name('Instansi');
 route::resource('datainstansi', InstansiController::class);
+route::resource('datapembimbing', PembimbingController::class);
 

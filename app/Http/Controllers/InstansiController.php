@@ -35,13 +35,19 @@ class InstansiController extends Controller
     {
         //
         $request->validate([
-            'nama_instansi',
-            'no_telp',
-            'email',
-        ]);
-
+        'nama_instansi' => 'required',
+        'no_telp' => 'required',
+        'email' => 'required|email|unique:instansi,email',
+    ], [
+        'nama_instansi.required' => 'Nama Instansi wajib diisi.',
+        'no_telp.required' => 'Nomor Telepon wajib diisi.',
+        'email.required' => 'Alamat Email wajib diisi.',
+        'email.email' => 'Alamat Email tidak valid.',
+        'email.unique' => 'Alamat Email sudah digunakan.',
+    ]);
+    // Simpan data jika validasi berhasil
         Instansi::create($request->all());
-        return redirect('datainstansi.index');
+        return redirect()->route('datainstansi.index')->with('success', 'Data Instansi berhasil ditambahkan.');
     }
 
     /**
@@ -58,6 +64,8 @@ class InstansiController extends Controller
     public function edit(string $id)
     {
         //
+        $instansi = Instansi::firstWhere('id', $id);
+        return view('instansi/edit', compact('instansi'));
     }
 
     /**
@@ -65,7 +73,27 @@ class InstansiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validasi input
+        $request->validate([
+            'nama_instansi' => 'required',
+            'no_telp' => 'required',
+            'email' => 'required|email|unique:instansi,email,' . $id, // Menghindari validasi unik untuk dirinya sendiri
+        ], [
+            'nama_instansi.required' => 'Nama Instansi wajib diisi.',
+            'no_telp.required' => 'Nomor Telepon wajib diisi.',
+            'email.required' => 'Alamat Email wajib diisi.',
+            'email.email' => 'Alamat Email tidak valid.',
+            'email.unique' => 'Alamat Email sudah digunakan.',
+        ]);
+
+        // Ambil data instansi yang akan diubah
+        $instansi = Instansi::find($id);
+        // Update data instansi
+        $instansi->nama_instansi = $request->nama_instansi;
+        $instansi->no_telp = $request->no_telp;
+        $instansi->email = $request->email;
+        $instansi->save();
+        return redirect()->route('datainstansi.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
