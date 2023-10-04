@@ -1,0 +1,139 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Siswa;
+use App\Models\Instansi;
+use App\Models\Pembimbing;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class SiswaController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $siswa = DB::select("CALL tampilkan_data_siswa()");
+        return view('siswa.dash', compact('siswa'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        // Mengambil data Instansi dari tabel Instansi
+        $instansi = Instansi::pluck('nama_instansi', 'id');
+
+        // Mengambil data Pembimbing dari tabel Pembimbing
+        $pembimbing = Pembimbing::pluck('nama', 'id');
+        return view('siswa.create', compact('instansi', 'pembimbing'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nis' => 'required|numeric|unique:siswa,nis',
+            'nama' => 'required',
+            'no_telp' =>'required',
+            'kelas' =>'required',
+            'angkatan' =>'required',
+            'email' => 'required|email|unique:pembimbing,email',
+            'id_instansi' =>'required',
+            'id_pembimbing' =>'required',
+        ], [
+            'nis.required' => 'NIS wajib diisi.',
+            'nis.unique' => 'NIS sudah ada.',
+            'nama.required' => 'Nama pembimbing wajib diisi.',
+            'no_telp.required' => 'nomor telepon wajib diisi.',
+            'kelas.required' => 'kelas wajib diisi.',
+            'angkatan.required' => 'angkatan wajib diisi.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Alamat email tidak valid.',
+            'email.unique' => 'Alamat email sudah ada.',
+            'id_instansi.required' => 'angkatan wajib diisi.',
+            'id_pembimbing.required' => 'angkatan wajib diisi.',
+        ]);
+
+        // simpan data jika berhasil
+        Siswa::create($request->all());
+        // 
+        return redirect()->route('datasiswa.index')->with('success', 'Data siswa berhasil ditambah!');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $siswa = Siswa::firstWhere('id', $id);
+        $instansi = Instansi::pluck('nama_instansi', 'id');
+        $pembimbing = Pembimbing::pluck('nama', 'id');
+        return view('siswa/edit', compact('siswa', 'instansi', 'pembimbing'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'nis' => 'required|numeric|unique:siswa,nis,' . $id,
+            'nama' => 'required',
+            'no_telp' =>'required',
+            'kelas' =>'required',
+            'angkatan' =>'required',
+            'email' => 'required|email|unique:pembimbing,email,' . $id,
+            'id_instansi' =>'required',
+            'id_pembimbing' =>'required',
+        ], [
+            'nis.required' => 'NIS wajib diisi.',
+            'nis.unique' => 'NIS sudah ada.',
+            'nama.required' => 'Nama pembimbing wajib diisi.',
+            'no_telp.required' => 'nomor telepon wajib diisi.',
+            'kelas.required' => 'kelas wajib diisi.',
+            'angkatan.required' => 'angkatan wajib diisi.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Alamat email tidak valid.',
+            'email.unique' => 'Alamat email sudah ada.',
+            'id_instansi.required' => 'angkatan wajib diisi.',
+            'id_pembimbing.required' => 'angkatan wajib diisi.',
+        ]);
+
+        $siswa = Siswa::find($id);
+        $siswa->nis = $request->nis;
+        $siswa->nama = $request->nama;
+        $siswa->no_telp = $request->no_telp;
+        $siswa->kelas = $request->kelas;
+        $siswa->angkatan = $request->angkatan;
+        $siswa->email = $request->email;
+        $siswa->id_instansi = $request->id_instansi;
+        $siswa->id_pembimbing = $request->id_pembimbing;
+        $siswa->save();
+        return redirect()->route('datasiswa.index')->with('success', 'Data pembimbing berhasil diubah!');
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $siswa = Siswa::find($id);
+        $siswa->delete();
+        return redirect()->route('datasiswa.index');
+    }
+}

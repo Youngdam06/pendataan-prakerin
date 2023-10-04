@@ -8,4 +8,14 @@
     </button>
     </div>
     @endif
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        @if (session()->has('loginBerhasil'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Login Berhasil',
+            text: '{{ session()->get('loginBerhasil') }}'
+        });
+        @endif
+    </script>
 @endsection

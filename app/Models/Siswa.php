@@ -16,7 +16,7 @@ class Siswa extends Model
         'kelas',
         'angkatan',
         'email',
-        'id_instasni',
+        'id_instansi',
         'id_pembimbing',
     ];
 }

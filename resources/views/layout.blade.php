@@ -69,10 +69,10 @@
             <span class="nav-link-text ms-1">Kelola Data</span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="">Kelola Data Siswa</a></li>
-            <li><a class="dropdown-item" href="datapembimbing">Kelola Data Pembimbing</a></li>
-            <li><a class="dropdown-item" href="datainstansi">Kelola Data Instansi</a></li>
-            <li><a class="dropdown-item" href="">Kelola Data Prakerin</a></li>
+            <li><a class="dropdown-item" href="{{Route('datasiswa.index')}}">Kelola Data Siswa</a></li>
+            <li><a class="dropdown-item" href="{{Route('datapembimbing.index')}}">Kelola Data Pembimbing</a></li>
+            <li><a class="dropdown-item" href="{{Route('datainstansi.index')}}">Kelola Data Instansi</a></li>
+            <li><a class="dropdown-item" href="{{Route('dataprakerin.index')}}">Kelola Data Prakerin</a></li>
         </ul>
     </li>
     {{-- dropdown link halaman laporan data --}}

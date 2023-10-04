@@ -31,7 +31,7 @@ class PembimbingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nik' => 'required',
+            'nik' => 'required|numeric|unique:pembimbing,nik',
             'nama' => 'required',
             'no_telp' =>'required',
             'email' => 'required|email|unique:pembimbing,email'
@@ -73,7 +73,7 @@ class PembimbingController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'nik' => 'required|nik|unique:pembimbing,nik' . $id,
+            'nik' => 'required|numeric|unique:pembimbing,nik' . $id,
             'nama' => 'required',
             'no_telp' =>'required',
             'email' => 'required|email|unique:pembimbing,email' . $id

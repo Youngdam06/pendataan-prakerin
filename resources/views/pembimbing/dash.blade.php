@@ -34,9 +34,9 @@
                     <td class="align-middle text-center text-sm">{{ $data->no_telp }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->email }}</td>
                     <td>
-                        <form action="{{ route('datainstansi.destroy',$data->id) }}" method="POST">
+                        <form action="{{ route('datapembimbing.destroy',$data->id) }}" method="POST">
                             <div class="align-middle text-center text-sm">
-                                <a class="btn btn-info" href="{{ route('datainstansi.edit',$data->id) }}">Edit</a>
+                                <a class="btn btn-info" href="{{ route('datapembimbing.edit',$data->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" id="btnDelete">Delete</button>
@@ -64,6 +64,7 @@
   
   </main>
 {{-- javascript --}}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
         // Mengambil semua tombol delete dengan ID "btnDelete"
@@ -73,19 +74,44 @@
             button.addEventListener("click", function (event) {
                 event.preventDefault();
 
-                // Tampilkan prompt konfirmasi
-                var confirmation = confirm("Apakah Anda yakin ingin menghapus data ini?");
+                Swal.fire({
+                    title: 'Konfirmasi Hapus Data',
+                    text: "Apakah Anda yakin ingin menghapus data ini?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Hapus',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Jika pengguna mengonfirmasi, lanjutkan dengan mengirimkan formulir
+                        // Dalam hal ini, formulir di dalam loop di atas
+                        button.closest("form").submit();
+                    } else {
+                        // Jika pengguna membatalkan, tidak ada tindakan yang diambil
+                        Swal.fire(
+                            'Dibatalkan',
+                            'Data tidak dihapus',
+                            'info'
+                        );
+                    }
+                });
+                // // Tampilkan prompt konfirmasi
+                // var confirmation = confirm("Apakah Anda yakin ingin menghapus data ini?");
 
-                if (confirmation) {
-                    // Jika pengguna mengonfirmasi, lanjutkan dengan mengirimkan formulir
-                    // Dalam hal ini, formulir di dalam loop di atas
-                    button.closest("form").submit();
-                } else {
-                    // Jika pengguna membatalkan, tidak ada tindakan yang diambil
-                    alert("Penghapusan dibatalkan.");
-                }
+                // if (confirmation) {
+                //     // Jika pengguna mengonfirmasi, lanjutkan dengan mengirimkan formulir
+                //     // Dalam hal ini, formulir di dalam loop di atas
+                //     button.closest("form").submit();
+                // } else {
+                //     // Jika pengguna membatalkan, tidak ada tindakan yang diambil
+                //     alert("Penghapusan dibatalkan.");
+                // }
             });
         });
     });
+
+    
 </script>
 @endsection

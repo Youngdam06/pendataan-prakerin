@@ -93,7 +93,7 @@ class InstansiController extends Controller
         $instansi->no_telp = $request->no_telp;
         $instansi->email = $request->email;
         $instansi->save();
-        return redirect()->route('datainstansi.index')->with('success', 'Data berhasil diubah');
+        return redirect()->route('datainstansi.index')->with('success', 'Data Instansi berhasil diubah');
     }
 
     /**
