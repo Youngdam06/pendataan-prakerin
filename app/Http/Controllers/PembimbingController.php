@@ -32,7 +32,7 @@ class PembimbingController extends Controller
     {
         $request->validate([
             'nik' => 'required|numeric|unique:pembimbing,nik',
-            'nama' => 'required',
+            'nama_pembimbing' => 'required',
             'no_telp' =>'required',
             'email' => 'required|email|unique:pembimbing,email'
         ], [
@@ -74,7 +74,7 @@ class PembimbingController extends Controller
     {
         $request->validate([
             'nik' => 'required|numeric|unique:pembimbing,nik' . $id,
-            'nama' => 'required',
+            'nama_pembimbing' => 'required',
             'no_telp' =>'required',
             'email' => 'required|email|unique:pembimbing,email' . $id
         ], [

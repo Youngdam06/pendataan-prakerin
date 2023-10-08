@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Siswa extends Model
 {
@@ -14,9 +15,15 @@ class Siswa extends Model
         'nama',
         'no_telp',
         'kelas',
+        'jurusan',
         'angkatan',
         'email',
         'id_instansi',
         'id_pembimbing',
     ];
+
+    public function instansi(): HasOne
+    {
+        return $this->hasOne(instansi::class);
+    }
 }

@@ -14,7 +14,7 @@ class PrakerinController extends Controller
      */
     public function index()
     {
-        $prakerin = DB::select("CALL tampilkan_data_prakerin()");
+        $prakerin = DB::select("CALL tampilkan_data_innerjoin_prakerin()");
         return view('prakerin.dash', compact('prakerin'));
     }
 

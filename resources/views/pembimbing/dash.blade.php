@@ -1,5 +1,10 @@
 @extends('layout')
 @section('konten')
+{{-- link --}}
+<!-- Memuat DataTables CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js">
+{{-- link --}}
 <div class="row">
     <div class="col-12">
       <div class="card my-4">
@@ -16,7 +21,7 @@
                     <p>{{ $message }}</p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 @endif
                 
-                <table class="table table-bordered">
+                <table id="contoh" class="table table-bordered">
                 
                 <tr>
                     <th class="align-middle text-center text-sm">No</th>
@@ -30,7 +35,7 @@
                     @foreach ($pembimbing as $data)
                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nik }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->nama_pembimbing }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->no_telp }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->email }}</td>
                     <td>
@@ -64,6 +69,18 @@
   
   </main>
 {{-- javascript --}}
+<!-- Memuat jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script src="resources/js/script.js"></script>
+<!-- Memuat DataTables JavaScript -->
+<script>
+  $(document).ready(function() {
+    $('#tabel-pembimbing').DataTable();
+  });
+</script>
+{{-- npm sweetalert --}}
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {

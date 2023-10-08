@@ -15,8 +15,9 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswa = DB::select("CALL tampilkan_data_siswa()");
-        return view('siswa.dash', compact('siswa'));
+        // $siswa = DB::select("CALL tampilkan_data_innerjoin_siswa(1, 5)");
+        $siswa = Siswa::latest()->paginate(5);
+        return view('siswa.dash', compact('siswa'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,11 +25,11 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        // Mengambil data Instansi dari tabel Instansi
+        // Mengambil data Instansi dari tabel Instansi untuk dropdown item
         $instansi = Instansi::pluck('nama_instansi', 'id');
 
-        // Mengambil data Pembimbing dari tabel Pembimbing
-        $pembimbing = Pembimbing::pluck('nama', 'id');
+        // Mengambil data Pembimbing dari tabel Pembimbing untuk dropdown item
+        $pembimbing = Pembimbing::pluck('nama_pembimbing', 'id');
         return view('siswa.create', compact('instansi', 'pembimbing'));
     }
 
@@ -42,6 +43,7 @@ class SiswaController extends Controller
             'nama' => 'required',
             'no_telp' =>'required',
             'kelas' =>'required',
+            'jurusan' =>'required',
             'angkatan' =>'required',
             'email' => 'required|email|unique:pembimbing,email',
             'id_instansi' =>'required',
@@ -52,6 +54,7 @@ class SiswaController extends Controller
             'nama.required' => 'Nama pembimbing wajib diisi.',
             'no_telp.required' => 'nomor telepon wajib diisi.',
             'kelas.required' => 'kelas wajib diisi.',
+            'jurusan.required' => 'jurusan wajib diisi.',
             'angkatan.required' => 'angkatan wajib diisi.',
             'email.required' => 'Email wajib diisi.',
             'email.email' => 'Alamat email tidak valid.',
@@ -95,6 +98,7 @@ class SiswaController extends Controller
             'nama' => 'required',
             'no_telp' =>'required',
             'kelas' =>'required',
+            'jurusan' =>'required',
             'angkatan' =>'required',
             'email' => 'required|email|unique:pembimbing,email,' . $id,
             'id_instansi' =>'required',
@@ -105,6 +109,7 @@ class SiswaController extends Controller
             'nama.required' => 'Nama pembimbing wajib diisi.',
             'no_telp.required' => 'nomor telepon wajib diisi.',
             'kelas.required' => 'kelas wajib diisi.',
+            'jurusan.required' => 'jurusan wajib diisi.',
             'angkatan.required' => 'angkatan wajib diisi.',
             'email.required' => 'Email wajib diisi.',
             'email.email' => 'Alamat email tidak valid.',
@@ -118,6 +123,7 @@ class SiswaController extends Controller
         $siswa->nama = $request->nama;
         $siswa->no_telp = $request->no_telp;
         $siswa->kelas = $request->kelas;
+        $siswa->jurusan = $request->jurusan;
         $siswa->angkatan = $request->angkatan;
         $siswa->email = $request->email;
         $siswa->id_instansi = $request->id_instansi;

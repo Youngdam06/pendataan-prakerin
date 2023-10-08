@@ -5,7 +5,7 @@
       <div class="card my-4">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
           <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3">
-            <h6 class="text-white text-capitalize ps-3">Kelola Data Instansi</h6>
+            <h6 class="text-white text-capitalize ps-3">Kelola Data Siswa</h6>
           </div>
         </div>
         <div class="card-body px-0 pb-2">
@@ -22,12 +22,10 @@
                     <th class="align-middle text-center text-sm">No</th>
                     <th class="align-middle text-center text-sm">NIS</th>
                     <th class="align-middle text-center text-sm">Nama Siswa</th>
-                    <th class="align-middle text-center text-sm">Nomor Telepon</th>
                     <th class="align-middle text-center text-sm">Kelas</th>
-                    <th class="align-middle text-center text-sm">Angkatan</th>
-                    <th class="align-middle text-center text-sm">Email</th>
-                    <th class="align-middle text-center text-sm">Id Instansi</th>
-                    <th class="align-middle text-center text-sm">Id Pembimbing</th>
+                    <th class="align-middle text-center text-sm">Jurusan</th>
+                    <th class="align-middle text-center text-sm">Nama Pembimbing</th>
+                    <th class="align-middle text-center text-sm">Nama Instansi</th>
                     <th class="align-middle text-center text-sm" width="350px">Action</th>
                 </tr>
                 <tr>
@@ -35,12 +33,10 @@
                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nis }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->no_telp }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->angkatan }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->email }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->id_instansi }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->id_pembimbing }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->jurusan }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->nama_pembimbing }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->nama_instansi }}</td>
                     <td>
                         <form action="{{ route('datasiswa.destroy',$data->id) }}" method="POST">
                             <div class="align-middle text-center text-sm">
@@ -54,9 +50,9 @@
                 </tr>
                 @endforeach
               </table>
-              {{-- <div class="row text-center">
-                {!! $pemasukans->links() !!}
-              </div> --}}
+              <div class="row text-center">
+                {{ $siswa->links() }}
+              </div>
                 <div class="container">
                     <a class="btn bg-info btn-dark" href="{{ route('datasiswa.create') }}">Tambah data</a>
                 </div>

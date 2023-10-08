@@ -3,7 +3,7 @@
     <main class="main-content  mt-0">
         <div class="container my-auto">
         <div class="row">
-            <div class="col-lg-4 col-md-8 col-12 mx-auto">
+            <div class="col-lg-6 col-md-8 col-12 mx-auto">
             <div class="card z-index-0 fadeIn3 fadeInBottom">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <div class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1">
@@ -40,7 +40,11 @@
                     </div>
                     <label class="form-label">Kelas</label>
                     <div class="input-group input-group-outline my-3">
-                    <input type="text" name="kelas" value="{{ $siswa->kelas }}"class="form-control">
+                    <input type="number" name="kelas" value="{{ $siswa->kelas }}"class="form-control">
+                    </div>
+                    <label class="form-label">Jurusan</label>
+                    <div class="input-group input-group-outline my-3">
+                    <input type="text" name="jurusan" value="{{ $siswa->jurusan }}"class="form-control">
                     </div>
                     <label class="form-label">Angkatan</label>
                     <div class="input-group input-group-outline my-3">

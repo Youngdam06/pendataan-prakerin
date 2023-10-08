@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginsController;
 use App\Http\Controllers\InstansiController;
 use App\Http\Controllers\PrakerinController;
 use App\Http\Controllers\PembimbingController;
+use App\Http\Controllers\MaindashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,17 +25,16 @@ Route::get('/signin', [LoginsController::class, 'index']);
 Route::get('/signup', [LoginsController::class, 'indexReg']);
 Route::post('/post', [LoginsController::class, 'postLogin'])->name("postLog");
 Route::post('/storeReg', [LoginsController::class, 'store'])->name("postReg");
-Route::get('/', function() {
-    return view('/maindash');
-});
+Route::get('/', [MaindashboardController::class, 'index']);
 Route::get('/logout', [LoginsController::class, 'logout']);
 
-// sesi kelola data instansi
-// Route::get('/instansi', [InstansiController::class, 'index']);
-// Route::post('/storeInstansi', [InstansiController::class, 'store'])->name('storeInstansi');
-// Route::get('/tambahInstansi', [InstansiController::class, 'create'])->name('Instansi');
+// routing kelola data instansi, pembimbing, siswa, dan prakerin.
 route::resource('datainstansi', InstansiController::class);
 route::resource('datapembimbing', PembimbingController::class);
 route::resource('datasiswa', SiswaController::class);
 route::resource('dataprakerin', PrakerinController::class);
 
+// routing laporan data instansi, pembimbing, siswa, dan prakerin.
+Route::get('datatabel', function () {
+    return view('datatabel');
+});

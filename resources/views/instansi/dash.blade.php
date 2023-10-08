@@ -45,7 +45,7 @@
                 @endforeach
               </table>
               {{-- <div class="row text-center">
-                {!! $pemasukans->links() !!}
+                {!! $instansi->links() !!}
               </div> --}}
                 <div class="container">
                     <a class="btn bg-info btn-dark" href="{{ route('datainstansi.create') }}">Tambah data</a>

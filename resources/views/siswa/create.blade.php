@@ -3,7 +3,7 @@
 <main class="main-content  mt-0">
     <div class="container my-auto">
     <div class="row">
-        <div class="col-lg-4 col-md-8 col-12 mx-auto">
+        <div class="col-lg-6 col-md-8 col-12 mx-auto">
         <div class="card z-index-0 fadeIn3 fadeInBottom">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <div class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1">
@@ -39,7 +39,16 @@
                 </div>
                 <label class="form-label">Kelas</label>
                 <div class="input-group input-group-outline my-3">
-                <input type="text" name="kelas" class="form-control">
+                <input type="number" name="kelas" class="form-control">
+                </div>
+                <label class="form-label">Jurusan</label>
+                <div class="input-group input-group-outline my-3">
+                {{-- <input type="text" name="jurusan" class="form-control"> --}}
+                <select name="jurusan" class="form-select form-select-outline my-3">
+                    <option value="Multimedia">Multimedia</option>
+                    <option value="Rakayasa Perangkat Lunak">Rakayasa Perangkat Lunak</option>
+                    <option value="Otomatisasi Tata Kelola Perkantoran">Otomatisasi Tata Kelola Perkantoran</option>
+                </select>
                 </div>
                 <label class="form-label">Angkatan</label>
                 <div class="input-group input-group-outline my-3">
@@ -54,7 +63,7 @@
                     <input type="email" name="email" class="form-control" id="dengan-rupiah">
                 </div>
                 <label class="form-label">Instansi</label>
-                <div class="input-group input-group-outline my-3">
+                <div class="input-group input-group-outline my-1">
                     <select name="id_instansi" class="form-select form-select-outline my-3">
                         <option value="">Pilih Instansi</option>
                         @foreach($instansi as $key => $value)
@@ -63,7 +72,7 @@
                     </select>
                 </div>
                 <label class="form-label">Pembimbing</label>
-                <div class="input-group input-group-outline my-3">
+                <div class="input-group input-group-outline my-1">
                     <select name="id_pembimbing" class="form-select">
                         <option value="">Pilih Pembimbing</option>
                         @foreach($pembimbing as $key => $value)
