@@ -27,7 +27,7 @@
                     </div>
                     <label class="form-label">Nama Pembimbing</label>
                     <div class="input-group input-group-outline my-3">
-                        <input type="text" name="nama" class="form-control">
+                        <input type="text" name="nama_pembimbing" class="form-control">
                     </div>
                     <label class="form-label">Nomor Telepon</label>
                     <div class="input-group input-group-outline my-3">

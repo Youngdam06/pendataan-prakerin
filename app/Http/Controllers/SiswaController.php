@@ -15,9 +15,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        // $siswa = DB::select("CALL tampilkan_data_innerjoin_siswa(1, 5)");
-        $siswa = Siswa::latest()->paginate(5);
-        return view('siswa.dash', compact('siswa'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $siswa = DB::select("CALL tampilkan_data_innerjoin_siswa()");
+        return view('siswa.dash', compact('siswa'));
     }
 
     /**

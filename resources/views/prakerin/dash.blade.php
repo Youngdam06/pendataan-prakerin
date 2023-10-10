@@ -1,23 +1,27 @@
 @extends('layout')
 @section('konten')
+{{-- link --}}
+<!-- Memuat DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+{{-- link --}}
 <div class="row">
     <div class="col-12">
-    <div class="card my-4">
+      <div class="card my-4">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-        <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3">
+          <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3">
             <h6 class="text-white text-capitalize ps-3">Kelola Data Prakerin</h6>
-        </div>
+          </div>
         </div>
         <div class="card-body px-0 pb-2">
-        <div class="table-responsive p-0">
-            <table class="table align-items-center justify-content-center mb-0">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-dismissable text-white" >
-                    <p>{{ $message }}</p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                @endif
-                
-                <table class="table table-bordered">
-                
+          <div class="table-responsive p-0">
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-dismissable text-white">
+                <p>{{ $message }}</p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+            
+            <table id="table-prakerin" class="table table-bordered">
+                <thead>
                 <tr>
                     <th class="align-middle text-center text-sm">No</th>
                     <th class="align-middle text-center text-sm">Tanggal Awal</th>
@@ -28,8 +32,10 @@
                     <th class="align-middle text-center text-sm">Jurusan</th>
                     <th class="align-middle text-center text-sm" width="350px">Action</th>
                 </tr>
+                </thead>
+                <tbody>
+                @foreach ($prakerin as $data)
                 <tr>
-                    @foreach ($prakerin as $data)
                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->tanggal_awal }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->tanggal_akhir }}</td>
@@ -49,25 +55,29 @@
                     </td>
                 </tr>
                 @endforeach
+                </tbody>
             </table>
-            {{-- <div class="row text-center">
-                {!! $pemasukans->links() !!}
-            </div> --}}
-                <div class="container">
-                    <a class="btn bg-info btn-dark" href="{{ route('dataprakerin.create') }}">Tambah data</a>
-                </div>
-            </tbody>
-            </table>
-            
+            <div class="container">
+                <a class="btn bg-info btn-dark" href="{{ route('dataprakerin.create') }}">Tambah data</a>
+            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
-    </div>
+  </div>
 </div>
 </div>
 
 </main>
 {{-- javascript --}}
+<!-- Memuat jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#table-prakerin').DataTable();
+    });
+</script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
         // Mengambil semua tombol delete dengan ID "btnDelete"

@@ -11,7 +11,7 @@ class Pembimbing extends Model
     protected $table = 'pembimbing';
     protected $fillable = [
         'nik',
-        'nama',
+        'nama_pembimbing',
         'no_telp',
         'email',
     ];

@@ -37,7 +37,7 @@ class PembimbingController extends Controller
             'email' => 'required|email|unique:pembimbing,email'
         ], [
             'nik.required' => 'NIK wajib diisi.',
-            'nama.required' => 'Nama pembimbing wajib diisi.',
+            'nama_pembimbing.required' => 'Nama pembimbing wajib diisi.',
             'no_telp.required' => 'nomor telepon wajib diisi.',
             'email.required' => 'Email wajib diisi.',
             'email.email' => 'Alamat email tidak valid.',
@@ -79,7 +79,7 @@ class PembimbingController extends Controller
             'email' => 'required|email|unique:pembimbing,email' . $id
         ], [
             'nik.required' => 'NIK wajib diisi.',
-            'nama.required' => 'Nama pembimbing wajib diisi.',
+            'nama_pembimbing.required' => 'Nama pembimbing wajib diisi.',
             'no_telp.required' => 'nomor telepon wajib diisi.',
             'email.required' => 'Email wajib diisi.',
             'email.email' => 'Alamat email tidak valid.',

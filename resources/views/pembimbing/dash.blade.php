@@ -2,8 +2,7 @@
 @section('konten')
 {{-- link --}}
 <!-- Memuat DataTables CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 {{-- link --}}
 <div class="row">
     <div class="col-12">
@@ -13,16 +12,17 @@
             <h6 class="text-white text-capitalize ps-3">Kelola Data Pembimbing</h6>
           </div>
         </div>
+        <div class="alert">
+          @if ($message = Session::get('success'))
+          <div class="alert alert-success alert-dismissable text-white m-1" >
+              <p>{{ $message }}</p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+        </div>
         <div class="card-body px-0 pb-2">
           <div class="table-responsive p-0">
-            <table class="table align-items-center justify-content-center mb-0">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-dismissable text-white" >
-                    <p>{{ $message }}</p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                @endif
-                
-                <table id="contoh" class="table table-bordered">
-                
+            <table id="table-pembimbing" class="table table-bordered">
+                <thead>
                 <tr>
                     <th class="align-middle text-center text-sm">No</th>
                     <th class="align-middle text-center text-sm">NIK</th>
@@ -31,8 +31,10 @@
                     <th class="align-middle text-center text-sm">Email</th>
                     <th class="align-middle text-center text-sm" width="350px">Action</th>
                 </tr>
+                </thead>
+                <tbody>
+                @foreach ($pembimbing as $data)
                 <tr>
-                    @foreach ($pembimbing as $data)
                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nik }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->nama_pembimbing }}</td>
@@ -50,16 +52,11 @@
                     </td>
                 </tr>
                 @endforeach
+                </tbody>
               </table>
-              {{-- <div class="row text-center">
-                {!! $pemasukans->links() !!}
-              </div> --}}
-                <div class="container">
-                    <a class="btn bg-info btn-dark" href="{{ route('datapembimbing.create') }}">Tambah data</a>
-                </div>
-              </tbody>
-            </table>
-            
+              <div class="container">
+                <a class="btn bg-info btn-dark" href="{{ route('datapembimbing.create') }}">Tambah data</a>
+            </div>
           </div>
         </div>
       </div>
@@ -72,15 +69,12 @@
 <!-- Memuat jQuery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-<script src="resources/js/script.js"></script>
-<!-- Memuat DataTables JavaScript -->
 <script>
   $(document).ready(function() {
-    $('#tabel-pembimbing').DataTable();
+    $('#table-pembimbing').DataTable();
   });
 </script>
-{{-- npm sweetalert --}}
+<!-- Memuat npm sweetalert -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -114,21 +108,8 @@
                         );
                     }
                 });
-                // // Tampilkan prompt konfirmasi
-                // var confirmation = confirm("Apakah Anda yakin ingin menghapus data ini?");
-
-                // if (confirmation) {
-                //     // Jika pengguna mengonfirmasi, lanjutkan dengan mengirimkan formulir
-                //     // Dalam hal ini, formulir di dalam loop di atas
-                //     button.closest("form").submit();
-                // } else {
-                //     // Jika pengguna membatalkan, tidak ada tindakan yang diambil
-                //     alert("Penghapusan dibatalkan.");
-                // }
             });
         });
     });
-
-    
 </script>
 @endsection

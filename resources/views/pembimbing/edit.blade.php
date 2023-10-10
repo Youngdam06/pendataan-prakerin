@@ -40,7 +40,7 @@
                         <div class="alert alert-danger text-white">{{ $message }}</div>
                     @enderror
                     <div class="input-group input-group-outline my-3">
-                    <input type="email" name="email" value="{{ $instansi->email }}" class="form-control" id="dengan-rupiah">
+                    <input type="email" name="email" value="{{ $pembimbing->email }}" class="form-control" id="dengan-rupiah">
                     </div>
                     <div class="text-center">
                     <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2">Ubah Data</button>

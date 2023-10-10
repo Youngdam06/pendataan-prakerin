@@ -1,5 +1,9 @@
 @extends('layout')
 @section('konten')
+{{-- link --}}
+<!-- Memuat DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+{{-- link --}}
 <div class="row">
     <div class="col-12">
       <div class="card my-4">
@@ -10,14 +14,14 @@
         </div>
         <div class="card-body px-0 pb-2">
           <div class="table-responsive p-0">
-            <table class="table align-items-center justify-content-center mb-0">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-dismissable text-white" >
-                    <p>{{ $message }}</p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                @endif
-                
-                <table class="table table-bordered">
-                
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-dismissable text-white">
+                <p>{{ $message }}</p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+            
+            <table id="table-instansi" class="table table-bordered">
+                <thead>
                 <tr>
                     <th class="align-middle text-center text-sm">No</th>
                     <th class="align-middle text-center text-sm">Nama Instansi</th>
@@ -25,8 +29,10 @@
                     <th class="align-middle text-center text-sm">Email</th>
                     <th class="align-middle text-center text-sm" width="350px">Action</th>
                 </tr>
+                </thead>
+                <tbody>
+                @foreach ($instansi as $data)
                 <tr>
-                    @foreach ($instansi as $data)
                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_instansi }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->no_telp }}</td>
@@ -43,25 +49,26 @@
                     </td>
                 </tr>
                 @endforeach
-              </table>
-              {{-- <div class="row text-center">
-                {!! $instansi->links() !!}
-              </div> --}}
-                <div class="container">
-                    <a class="btn bg-info btn-dark" href="{{ route('datainstansi.create') }}">Tambah data</a>
-                </div>
-              </tbody>
+                </tbody>
             </table>
-            
+            <div class="container">
+                <a class="btn bg-info btn-dark" href="{{ route('datainstansi.create') }}">Tambah data</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
-  
-  </main>
+</div>
+</main>
 {{-- javascript --}}
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#table-instansi').DataTable();
+  });
+</script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
         // Mengambil semua tombol delete dengan ID "btnDelete"
