@@ -9,6 +9,7 @@ use App\Http\Controllers\InstansiController;
 use App\Http\Controllers\PrakerinController;
 use App\Http\Controllers\PembimbingController;
 use App\Http\Controllers\MaindashboardController;
+use App\Models\Prakerin;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ route::resource('datasiswa', SiswaController::class);
 route::resource('dataprakerin', PrakerinController::class);
 
 // routing laporan data instansi, pembimbing, siswa, dan prakerin.
-Route::get('datatabel', function () {
-    return view('datatabel');
-});
+route::get('laporan-data-siswa', [SiswaController::class, 'laporan_data'])->name('laporansiswa');
+route::get('laporan-data-pembimbing', [PembimbingController::class, 'laporan_data'])->name('laporanpembimbing');
+route::get('laporan-data-instansi', [InstansiController::class, 'laporan_data'])->name('laporaninstansi');
+route::get('laporan-data-prakerin', [PrakerinController::class, 'laporan_data'])->name('laporanprakerin');

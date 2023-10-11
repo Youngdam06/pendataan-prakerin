@@ -17,12 +17,6 @@ class InstansiController extends Controller
         // Ambil data instansi dengan paginasi
         $instansi = DB::select("CALL tampilkan_data_instansi()");
         return view('instansi.dash', compact('instansi'));
-        
-        // // Menggunakan paginate() untuk membagi data menjadi beberapa halaman
-        // $instansi = collect($instansi)->paginate(10); // Ganti 10 dengan jumlah item per halaman yang Anda inginkan
-        
-        // // Tampilkan data instansi ke dalam tampilan dashboard
-        // return view('instansi.dash', compact('instansi'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**
@@ -110,5 +104,11 @@ class InstansiController extends Controller
         $instansi = Instansi::find($id);
         $instansi->delete();
         return redirect()->route('datainstansi.index');
+    }
+
+    public function laporan_data()
+    {
+        $instansi = DB::select("CALL tampilkan_data_instansi()");
+        return view('instansi.laporan', compact('instansi'));
     }
 }

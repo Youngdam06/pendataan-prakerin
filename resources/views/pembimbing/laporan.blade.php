@@ -9,7 +9,7 @@
       <div class="card my-4">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
           <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3">
-            <h6 class="text-white text-capitalize ps-3">Kelola Data Pembimbing</h6>
+            <h6 class="text-white text-capitalize ps-3">Laporan Data Pembimbing</h6>
           </div>
         </div>
         <div class="alert">
@@ -21,7 +21,7 @@
         </div>
         <div class="card-body px-7 pb-5">
           <div class="table-responsive p-0">
-            <table id="table-pembimbing" class="table table-bordered">
+            <table id="laporan-pembimbing" class="table table-bordered">
                 <thead>
                 <tr>
                     <th class="align-middle text-center text-sm">No</th>
@@ -29,7 +29,6 @@
                     <th class="align-middle text-center text-sm">Nama Pembimbing</th>
                     <th class="align-middle text-center text-sm">Nomor Telepon</th>
                     <th class="align-middle text-center text-sm">Email</th>
-                    <th class="align-middle text-center text-sm" width="350px">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -40,23 +39,10 @@
                     <td class="align-middle text-center text-sm">{{ $data->nama_pembimbing }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->no_telp }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->email }}</td>
-                    <td>
-                        <form action="{{ route('datapembimbing.destroy',$data->id) }}" method="POST">
-                            <div class="align-middle text-center text-sm">
-                                <a class="btn btn-info" href="{{ route('datapembimbing.edit',$data->id) }}">Edit</a>
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger" id="btnDelete">Delete</button>
-                            </div>
-                        </form>
-                    </td>
                 </tr>
                 @endforeach
                 </tbody>
               </table>
-              <div class="container">
-                <a class="btn bg-info btn-dark" href="{{ route('datapembimbing.create') }}">Tambah data</a>
-            </div>
           </div>
         </div>
       </div>
@@ -71,7 +57,7 @@
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('#table-pembimbing').DataTable();
+    $('#laporan-pembimbing').DataTable();
   });
 </script>
 <!-- Memuat npm sweetalert -->

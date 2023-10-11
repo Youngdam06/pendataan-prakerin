@@ -12,7 +12,7 @@
             <h6 class="text-white text-capitalize ps-3">Kelola Data Instansi</h6>
           </div>
         </div>
-        <div class="card-body px-0 pb-2">
+        <div class="card-body px-7 pb-0">
           <div class="table-responsive p-0">
             @if ($message = Session::get('success'))
             <div class="alert alert-success alert-dismissable text-white">
@@ -27,7 +27,7 @@
                     <th class="align-middle text-center text-sm">Nama Instansi</th>
                     <th class="align-middle text-center text-sm">Nomor Telepon</th>
                     <th class="align-middle text-center text-sm">Email</th>
-                    <th class="align-middle text-center text-sm" width="350px">Action</th>
+                    <th class="align-middle text-center text-sm" width="30px">Action</th>
                 </tr>
                 </thead>
                 <tbody>

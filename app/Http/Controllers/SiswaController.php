@@ -141,4 +141,10 @@ class SiswaController extends Controller
         $siswa->delete();
         return redirect()->route('datasiswa.index');
     }
+
+    public function laporan_data()
+    {
+        $siswa = DB::select("CALL tampilkan_data_innerjoin_siswa()");
+        return view('siswa.laporan', compact('siswa'));
+    }
 }

@@ -20,8 +20,8 @@
           @endif
         </div>
         
-        <div class="card-body px-0 pb-2">
-          <div class="table-responsive p-0">
+        <div class="card-body px-5 pb-0">
+          <div class="table-responsive p-3">
             <table id="table-siswa" class="table table-bordered">
                 <thead>
                 <tr>
@@ -32,7 +32,7 @@
                     <th class="align-middle text-center text-sm">Jurusan</th>
                     <th class="align-middle text-center text-sm">Nama Pembimbing</th>
                     <th class="align-middle text-center text-sm">Nama Instansi</th>
-                    <th class="align-middle text-center text-sm" width="350px">Action</th>
+                    <th class="align-middle text-center text-sm" width="200px">Action</th>
                 </tr>
                 </thead>
                 <tbody>

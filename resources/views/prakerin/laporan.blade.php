@@ -9,7 +9,7 @@
       <div class="card my-4">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
           <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3">
-            <h6 class="text-white text-capitalize ps-3">Kelola Data Prakerin</h6>
+            <h6 class="text-white text-capitalize ps-3">laporan Data Prakerin</h6>
           </div>
         </div>
         <div class="card-body px-3 pb-2">
@@ -20,7 +20,7 @@
             </div>
             @endif
             
-            <table id="table-prakerin" class="table table-bordered">
+            <table id="laporan-prakerin" class="table table-bordered">
                 <thead>
                 <tr>
                     <th class="align-middle text-center text-sm">No</th>
@@ -30,7 +30,6 @@
                     <th class="align-middle text-center text-sm">Nama Siswa</th>
                     <th class="align-middle text-center text-sm">Kelas</th>
                     <th class="align-middle text-center text-sm">Jurusan</th>
-                    <th class="align-middle text-center text-sm" width="350px">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,23 +42,10 @@
                     <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->jurusan }}</td>
-                    <td>
-                        <form action="{{ route('dataprakerin.destroy',$data->id) }}" method="POST">
-                            <div class="align-middle text-center text-sm">
-                                <a class="btn btn-info" href="{{ route('dataprakerin.edit',$data->id) }}">Edit</a>
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger" id="btnDelete">Delete</button>
-                            </div>
-                        </form>
-                    </td>
                 </tr>
                 @endforeach
                 </tbody>
             </table>
-            <div class="container">
-                <a class="btn bg-info btn-dark" href="{{ route('dataprakerin.create') }}">Tambah data</a>
-            </div>
           </div>
         </div>
       </div>
@@ -75,7 +61,7 @@
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#table-prakerin').DataTable();
+        $('#laporan-prakerin').DataTable();
     });
 </script>
 <script>

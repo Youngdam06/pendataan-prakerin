@@ -104,4 +104,10 @@ class PembimbingController extends Controller
         $pembimbing->delete();
         return redirect()->route('datapembimbing.index');
     }
+
+    public function laporan_data()
+    {
+        $pembimbing = DB::select("CALL tampilkan_data_pembimbing()");
+        return view('pembimbing.laporan', compact('pembimbing'));
+    }
 }

@@ -99,4 +99,10 @@ class PrakerinController extends Controller
         $prakerin->delete();
         return redirect()->route('dataprakerin.index');
     }
+
+    public function laporan_data()
+    {
+        $prakerin = DB::select("CALL tampilkan_data_innerjoin_prakerin()");
+        return view('prakerin.laporan', compact('prakerin'));
+    }
 }

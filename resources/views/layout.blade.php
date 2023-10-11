@@ -81,13 +81,13 @@
         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">table_view</i>
         </div>
-        <span class="nav-link-text ms-1">Kelola Laporan</span>
+        <span class="nav-link-text ms-1">Laporan Data</span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <li><a class="dropdown-item" href="">Laporan Data Siswa</a></li>
-        <li><a class="dropdown-item" href="">Laporan Data Pembimbing</a></li>
-        <li><a class="dropdown-item" href="">Laporan Data Instansi</a></li>
-        <li><a class="dropdown-item" href="">Laporan Data Prakerin</a></li>
+        <li><a class="dropdown-item" href="{{Route('laporansiswa')}}">Laporan Data Siswa</a></li>
+        <li><a class="dropdown-item" href="{{Route('laporanpembimbing')}}">Laporan Data Pembimbing</a></li>
+        <li><a class="dropdown-item" href="{{Route('laporaninstansi')}}">Laporan Data Instansi</a></li>
+        <li><a class="dropdown-item" href="{{Route('laporanprakerin')}}">Laporan Data Prakerin</a></li>
         </ul>
     </li>
     </ul>
