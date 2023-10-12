@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Instansi;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -108,7 +109,13 @@ class InstansiController extends Controller
 
     public function laporan_data()
     {
-        $instansi = DB::select("CALL tampilkan_data_instansi()");
+        $instansi = DB::select("CALL tampilkan_data_innerjoin_instansi()");
         return view('instansi.laporan', compact('instansi'));
+    }
+
+    public function print_laporan()
+    {
+        $instansi = DB::select("CALL tampilkan_data_instansi()");
+        return view('instansi.print', compact('instansi'));
     }
 }

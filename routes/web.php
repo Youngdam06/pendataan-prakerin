@@ -22,12 +22,12 @@ use App\Models\Prakerin;
 |
 */
 // route sesi login dan logout
-Route::get('/signin', [LoginsController::class, 'index']);
+Route::get('/signin', [LoginsController::class, 'index'])->name('signin');
 Route::get('/signup', [LoginsController::class, 'indexReg']);
 Route::post('/post', [LoginsController::class, 'postLogin'])->name("postLog");
 Route::post('/storeReg', [LoginsController::class, 'store'])->name("postReg");
 Route::get('/', [MaindashboardController::class, 'index']);
-Route::get('/logout', [LoginsController::class, 'logout']);
+Route::get('/logout', [LoginsController::class, 'logout'])->name('logout');
 
 // routing kelola data instansi, pembimbing, siswa, dan prakerin.
 route::resource('datainstansi', InstansiController::class);
@@ -40,3 +40,6 @@ route::get('laporan-data-siswa', [SiswaController::class, 'laporan_data'])->name
 route::get('laporan-data-pembimbing', [PembimbingController::class, 'laporan_data'])->name('laporanpembimbing');
 route::get('laporan-data-instansi', [InstansiController::class, 'laporan_data'])->name('laporaninstansi');
 route::get('laporan-data-prakerin', [PrakerinController::class, 'laporan_data'])->name('laporanprakerin');
+
+// routing print laporan data
+route::get('print-laporan-instansi', [InstansiController::class, 'print_laporan'])->name('printInstansi');

@@ -102,7 +102,7 @@ class PrakerinController extends Controller
 
     public function laporan_data()
     {
-        $prakerin = DB::select("CALL tampilkan_data_innerjoin_prakerin()");
+        $prakerin = DB::select("CALL tampilkan_data_innerjoin_prakerinn()");
         return view('prakerin.laporan', compact('prakerin'));
     }
 }

@@ -3,6 +3,7 @@
 {{-- link --}}
 <!-- Memuat DataTables CSS -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
 {{-- link --}}
 <div class="row">
     <div class="col-12">
@@ -30,6 +31,8 @@
                     <th class="align-middle text-center text-sm">Nama Siswa</th>
                     <th class="align-middle text-center text-sm">Kelas</th>
                     <th class="align-middle text-center text-sm">Jurusan</th>
+                    <th class="align-middle text-center text-sm">Nama Instansi</th>
+                    <th class="align-middle text-center text-sm">Nama Pembimbing</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -42,6 +45,8 @@
                     <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->jurusan }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->nama_instansi }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->nama_pembimbing }}</td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -59,9 +64,20 @@
 <!-- Memuat jQuery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#laporan-prakerin').DataTable();
+        $('#laporan-prakerin').DataTable({
+          dom: 'Bfrtip',
+          buttons: [
+            'pdf', 'print'
+          ]
+        });
     });
 </script>
 <script>

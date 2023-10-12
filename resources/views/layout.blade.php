@@ -5,8 +5,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="apple-touch-icon" sizes="76x76" href="/public/assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="/public/assets/img/icon2.png">
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Pragma" content="no-cache" />
+<link rel="icon" type="image/png" href="/assets/img/icon4.png">
 <title>
     Pendataan Prakerin
 </title>
@@ -31,10 +32,10 @@
     <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
     <a class="navbar-brand m-0" >
-        <img src="/assets/img/icon1.png" class="navbar-brand-img h-100" alt="main_logo">
+        <img src="/assets/img/icon4.png" class="navbar-brand-img h-100" alt="main_logo">
         @if (Auth::guard('admin')->check())
         @if (Auth::guard('admin')->user()->nama)
-            <span class="ms-3 font-weight-bold text-white mr-5">Hai, {{ Auth::guard('admin')->user()->nama }}!</span>
+            <span class="ms-3 font-weight-bold text-white mt-5">Hai, {{ Auth::guard('admin')->user()->nama }}!</span>
         @else
             <span class="ms-1 font-weight-bold text-white">Nama Tidak Tersedia</span>
         @endif

@@ -3,6 +3,7 @@
 {{-- link --}}
 <!-- Memuat DataTables CSS -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
 {{-- link --}}
 <div class="row">
     <div class="col-12">
@@ -19,22 +20,31 @@
                 <tr>
                     <th class="align-middle text-center text-sm">No</th>
                     <th class="align-middle text-center text-sm">Nama Instansi</th>
-                    <th class="align-middle text-center text-sm">Nomor Telepon</th>
                     <th class="align-middle text-center text-sm">Email</th>
+                    <th class="align-middle text-center text-sm">No Telepon</th>
+                    <th class="align-middle text-center text-sm">NIS Siswa</th>
+                    <th class="align-middle text-center text-sm">Nama Siswa</th>
+                    <th class="align-middle text-center text-sm">Jurusan</th>
+                    <th class="align-middle text-center text-sm">Tanggal Awal</th>
+                    <th class="align-middle text-center text-sm">Tanggal Akhir</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($instansi as $data)
-                <tr>
+                <tr>  
                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_instansi }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->no_telp }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->email }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->no_telp }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->nis }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->jurusan }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->tanggal_awal }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->tanggal_akhir }}</td>
                 </tr>
                 @endforeach
                 </tbody>
             </table>
-            <button class="btn btn-info align-middle text-center text-sm" id="print-button">Print</button>
         </div>
       </div>
     </div>
@@ -44,9 +54,20 @@
 {{-- javascript --}}
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('#laporan-instansi').DataTable();
+    $('#laporan-instansi').DataTable({
+      dom: 'Bfrtip',
+      buttons: [
+        'pdf', 'print'
+      ]
+    });
   });
 </script>
 @endsection

@@ -69,8 +69,14 @@ class LoginsController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('signin');
+        return view('logout'); // Gantilah 'logout' dengan tampilan logout Anda.
+
+        // $response = response()->redirectToRoute('signin'); // Ganti 'signin' dengan rute halaman login Anda
+
+        // // Set header untuk mengontrol cache
+        // $response->header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
+        // $response->header('Pragma', 'no-cache');
+
+        // return $response;
     }
 }
