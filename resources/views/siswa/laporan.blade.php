@@ -76,28 +76,4 @@
     });
   });
 </script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-        // Mengambil semua tombol delete dengan ID "btnDelete"
-        var deleteButtons = document.querySelectorAll("#btnDelete");
-
-        deleteButtons.forEach(function (button) {
-            button.addEventListener("click", function (event) {
-                event.preventDefault();
-
-                // Tampilkan prompt konfirmasi
-                var confirmation = confirm("Apakah Anda yakin ingin menghapus data ini?");
-
-                if (confirmation) {
-                    // Jika pengguna mengonfirmasi, lanjutkan dengan mengirimkan formulir
-                    // Dalam hal ini, formulir di dalam loop di atas
-                    button.closest("form").submit();
-                } else {
-                    // Jika pengguna membatalkan, tidak ada tindakan yang diambil
-                    alert("Penghapusan dibatalkan.");
-                }
-            });
-        });
-    });
-</script>
 @endsection

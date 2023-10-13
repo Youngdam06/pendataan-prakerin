@@ -73,10 +73,10 @@ class PembimbingController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'nik' => 'required|numeric|unique:pembimbing,nik' . $id,
+            'nik' => 'required|numeric|unique:pembimbing,nik,' . $id,
             'nama_pembimbing' => 'required',
             'no_telp' =>'required',
-            'email' => 'required|email|unique:pembimbing,email' . $id
+            'email' => 'required|email|unique:pembimbing,email,' . $id
         ], [
             'nik.required' => 'NIK wajib diisi.',
             'nama_pembimbing.required' => 'Nama pembimbing wajib diisi.',
@@ -88,11 +88,11 @@ class PembimbingController extends Controller
 
         $pembimbing = Pembimbing::find($id);
         $pembimbing->nik = $request->nik;
-        $pembimbing->nama = $request->nama;
+        $pembimbing->nama_pembimbing = $request->nama_pembimbing;
         $pembimbing->no_telp = $request->no_telp;
         $pembimbing->email = $request->email;
         $pembimbing->save();
-        return redirect()->route('datapembimbing.index')->with('success', 'Data pembimbing berhasil diubah!');
+        return redirect()->route('datapembimbing.index')->with('success2', 'Data pembimbing berhasil diubah!');
     }
 
     /**

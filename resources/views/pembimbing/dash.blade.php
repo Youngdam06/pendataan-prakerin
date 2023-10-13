@@ -19,8 +19,8 @@
           </div>
           @endif
         </div>
-        <div class="card-body px-7 pb-5">
-          <div class="table-responsive p-0">
+        <div class="card-body px-5 pb-0">
+          <div class="table-responsive p-3">
             <table id="table-pembimbing" class="table table-bordered">
                 <thead>
                 <tr>
@@ -111,5 +111,22 @@
             });
         });
     });
+</script>
+<script>
+  @if (session()->has('success'))
+  Swal.fire({
+      icon: 'success',
+      title: 'Data Berhasil Ditambah!',
+      text: '{{ session()->get('success') }}'
+  });
+  @endif
+
+  @if (session()->has('success2'))
+  Swal.fire({
+      icon: 'success',
+      title: 'Data Berhasil Diubah!',
+      text: '{{ session()->get('success2') }}'
+  });
+  @endif
 </script>
 @endsection
