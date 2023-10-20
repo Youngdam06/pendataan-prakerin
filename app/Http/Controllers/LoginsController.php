@@ -23,7 +23,7 @@ class LoginsController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-
+        // menggunakan guard admin yang sudah ditambahkan di auth.php
         if(Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
             return redirect('/');

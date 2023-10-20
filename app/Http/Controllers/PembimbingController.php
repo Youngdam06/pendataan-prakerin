@@ -13,6 +13,7 @@ class PembimbingController extends Controller
      */
     public function index()
     {
+        // call store procedure untuk menampilkan data pembimbing
         $pembimbing = DB::select("CALL tampilkan_data_pembimbing()");
         return view('pembimbing.dash', compact('pembimbing'));
     }
@@ -30,6 +31,7 @@ class PembimbingController extends Controller
      */
     public function store(Request $request)
     {
+        //validasi request input yang akan disimpan
         $request->validate([
             'nik' => 'required|numeric|unique:pembimbing,nik',
             'nama_pembimbing' => 'required',
@@ -46,7 +48,7 @@ class PembimbingController extends Controller
 
         // simpan data jika berhasil
         Pembimbing::create($request->all());
-        // 
+        // lempar ke form pembimbing
         return redirect()->route('datapembimbing.index')->with('success', 'Data pembimbing berhasil ditambah!');
     }
 
@@ -73,10 +75,10 @@ class PembimbingController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'nik' => 'required|numeric|unique:pembimbing,nik,' . $id,
+            'nik' => 'required|numeric|unique:pembimbing,nik,' . $id, // Menghindari validasi unik untuk dirinya sendiri
             'nama_pembimbing' => 'required',
             'no_telp' =>'required',
-            'email' => 'required|email|unique:pembimbing,email,' . $id
+            'email' => 'required|email|unique:pembimbing,email,' . $id // Menghindari validasi unik untuk dirinya sendiri
         ], [
             'nik.required' => 'NIK wajib diisi.',
             'nama_pembimbing.required' => 'Nama pembimbing wajib diisi.',
@@ -107,7 +109,7 @@ class PembimbingController extends Controller
 
     public function laporan_data()
     {
-        $pembimbing = DB::select("CALL tampilkan_data_pembimbing()");
+        $pembimbing = DB::select("CALL tampilkan_data_innerjoin_pembimbing()");
         return view('pembimbing.laporan', compact('pembimbing'));
     }
 }

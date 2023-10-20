@@ -30,18 +30,30 @@
                 <input type="number" name="nis" class="form-control">
                 </div>
                 <label class="form-label">Nama Siswa</label>
+                @error('nama')
+                <div class="alert alert-danger text-white">{{ $message }}</div>
+                @enderror
                 <div class="input-group input-group-outline my-3">
                 <input type="text" name="nama" class="form-control">
                 </div>
                 <label class="form-label">No Telepon</label>
+                @error('no_telp')
+                <div class="alert alert-danger text-white">{{ $message }}</div>
+                @enderror
                 <div class="input-group input-group-outline my-3">
                 <input type="number" name="no_telp" class="form-control">
                 </div>
                 <label class="form-label">Kelas</label>
+                @error('kelas')
+                <div class="alert alert-danger text-white">{{ $message }}</div>
+                @enderror
                 <div class="input-group input-group-outline my-3">
                 <input type="number" name="kelas" class="form-control">
                 </div>
                 <label class="form-label">Jurusan</label>
+                @error('jurusan')
+                <div class="alert alert-danger text-white">{{ $message }}</div>
+                @enderror
                 <div class="input-group input-group-outline my-3">
                 {{-- <input type="text" name="jurusan" class="form-control"> --}}
                 <select name="jurusan" class="form-select form-select-outline my-3">
@@ -51,6 +63,9 @@
                 </select>
                 </div>
                 <label class="form-label">Angkatan</label>
+                @error('email')
+                <div class="alert alert-danger text-white">{{ $message }}</div>
+                @enderror
                 <div class="input-group input-group-outline my-3">
                 <input type="text" name="angkatan" class="form-control">
                 </div>

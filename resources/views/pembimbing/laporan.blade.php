@@ -28,8 +28,10 @@
                     <th class="align-middle text-center text-sm">No</th>
                     <th class="align-middle text-center text-sm">NIK</th>
                     <th class="align-middle text-center text-sm">Nama Pembimbing</th>
-                    <th class="align-middle text-center text-sm">Nomor Telepon</th>
-                    <th class="align-middle text-center text-sm">Email</th>
+                    <th class="align-middle text-center text-sm">NIS Siswa</th>
+                    <th class="align-middle text-center text-sm">Nama Siswa</th>
+                    <th class="align-middle text-center text-sm">Jurusan Siswa</th>
+                    <th class="align-middle text-center text-sm">Nama Instansi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,8 +40,10 @@
                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nik }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->nama_pembimbing }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->no_telp }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->email }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->nis }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->jurusan }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->nama_instansi }}</td>
                 </tr>
                 @endforeach
                 </tbody>

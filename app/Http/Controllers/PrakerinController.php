@@ -44,7 +44,7 @@ class PrakerinController extends Controller
         ]);
         // Simpan data jika validasi berhasil
             Prakerin::create($request->all());
-            return redirect()->route('dataprakerin.index')->with('success', 'Data Prakerin berhasil ditambahkan.');
+            return redirect()->route('dataprakerin.index')->with('success2', 'Data Prakerin berhasil ditambahkan.');
     }
 
     /**
@@ -73,7 +73,7 @@ class PrakerinController extends Controller
         $request->validate([
             'tanggal_awal' => 'required',
             'tanggal_akhir' => 'required',
-            'id_siswa' => 'required|numeric|unique:prakerin,id_siswa,' . $id,
+            'id_siswa' => 'required|numeric|unique:prakerin,id_siswa,' . $id, // Menghindari validasi unik untuk dirinya sendiri
         ], [
             'tanggal_awal.required' => 'Tanggal Awal wajib diisi.',
             'tanggal_akhir.required' => 'Tanggal Akhir wajib diisi.',

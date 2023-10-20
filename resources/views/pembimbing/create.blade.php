@@ -22,14 +22,23 @@
                 <form role="form" action="{{ route('datapembimbing.store') }}" class="text-start" method="POST">
                     @csrf
                     <label class="form-label">NIK</label>
+                        @error('nik')
+                            <div class="alert alert-danger text-white">{{ $message }}</div>
+                        @enderror
                     <div class="input-group input-group-outline my-3">
                         <input type="number" name="nik" class="form-control">
                     </div>
                     <label class="form-label">Nama Pembimbing</label>
+                        @error('nama_pembimbing')
+                            <div class="alert alert-danger text-white">{{ $message }}</div>
+                        @enderror
                     <div class="input-group input-group-outline my-3">
                         <input type="text" name="nama_pembimbing" class="form-control">
                     </div>
                     <label class="form-label">Nomor Telepon</label>
+                        @error('no_telp')
+                            <div class="alert alert-danger text-white">{{ $message }}</div>
+                        @enderror
                     <div class="input-group input-group-outline my-3">
                         <input type="number" name="no_telp" class="form-control">
                     </div>

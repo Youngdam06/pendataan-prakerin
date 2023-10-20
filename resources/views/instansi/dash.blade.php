@@ -12,7 +12,7 @@
             <h6 class="text-white text-capitalize ps-3">Kelola Data Instansi</h6>
           </div>
         </div>
-        <div class="card-body px-7 pb-0">
+        <div class="card-body px-3 pb-2">
           <div class="table-responsive p-0">
             @if ($message = Session::get('success'))
             <div class="alert alert-success alert-dismissable text-white">
@@ -69,6 +69,7 @@
     $('#table-instansi').DataTable();
   });
 </script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
         // Mengambil semua tombol delete dengan ID "btnDelete"
@@ -77,20 +78,48 @@
         deleteButtons.forEach(function (button) {
             button.addEventListener("click", function (event) {
                 event.preventDefault();
-
-                // Tampilkan prompt konfirmasi
-                var confirmation = confirm("Apakah Anda yakin ingin menghapus data ini?");
-
-                if (confirmation) {
-                    // Jika pengguna mengonfirmasi, lanjutkan dengan mengirimkan formulir
-                    // Dalam hal ini, formulir di dalam loop di atas
-                    button.closest("form").submit();
-                } else {
-                    // Jika pengguna membatalkan, tidak ada tindakan yang diambil
-                    alert("Penghapusan dibatalkan.");
-                }
+                Swal.fire({
+                    title: 'Konfirmasi Hapus Data',
+                    text: "Apakah Anda yakin ingin menghapus data ini?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Hapus',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Jika pengguna mengonfirmasi, lanjutkan dengan mengirimkan formulir
+                        // Dalam hal ini, formulir di dalam loop di atas
+                        button.closest("form").submit();
+                    } else {
+                        // Jika pengguna membatalkan, tidak ada tindakan yang diambil
+                        Swal.fire(
+                            'Dibatalkan',
+                            'Data tidak dihapus',
+                            'info'
+                        );
+                    }
+                });
             });
         });
     });
+</script>
+<script>
+  @if (session()->has('success'))
+  Swal.fire({
+      icon: 'success',
+      title: 'Data Berhasil Ditambah!',
+      text: '{{ session()->get('success') }}'
+  });
+  @endif
+
+  @if (session()->has('success2'))
+  Swal.fire({
+      icon: 'success',
+      title: 'Data Berhasil Diubah!',
+      text: '{{ session()->get('success2') }}'
+  });
+  @endif
 </script>
 @endsection

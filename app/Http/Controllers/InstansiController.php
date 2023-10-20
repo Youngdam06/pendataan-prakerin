@@ -15,7 +15,7 @@ class InstansiController extends Controller
      */
     public function index(Request $request)
     {
-        // Ambil data instansi dengan paginasi
+        // Ambil data dengan call store procedure mysql
         $instansi = DB::select("CALL tampilkan_data_instansi()");
         return view('instansi.dash', compact('instansi'));
     }
@@ -34,14 +34,15 @@ class InstansiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validasi request input yang akan disimpan
         $request->validate([
         'nama_instansi' => 'required',
-        'no_telp' => 'required',
+        'no_telp' => 'required|max:20',
         'email' => 'required|email|unique:instansi,email',
     ], [
         'nama_instansi.required' => 'Nama Instansi wajib diisi.',
         'no_telp.required' => 'Nomor Telepon wajib diisi.',
+        'no_telp.max' => 'Maksimal 20 angka.',
         'email.required' => 'Alamat Email wajib diisi.',
         'email.email' => 'Alamat Email tidak valid.',
         'email.unique' => 'Alamat Email sudah digunakan.',
@@ -74,7 +75,7 @@ class InstansiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // Validasi input
+        //validasi request input yang akan disimpan
         $request->validate([
             'nama_instansi' => 'required',
             'no_telp' => 'required',
@@ -94,7 +95,7 @@ class InstansiController extends Controller
         $instansi->no_telp = $request->no_telp;
         $instansi->email = $request->email;
         $instansi->save();
-        return redirect()->route('datainstansi.index')->with('success', 'Data Instansi berhasil diubah');
+        return redirect()->route('datainstansi.index')->with('success2', 'Data Instansi berhasil diubah');
     }
 
     /**
@@ -111,11 +112,5 @@ class InstansiController extends Controller
     {
         $instansi = DB::select("CALL tampilkan_data_innerjoin_instansi()");
         return view('instansi.laporan', compact('instansi'));
-    }
-
-    public function print_laporan()
-    {
-        $instansi = DB::select("CALL tampilkan_data_instansi()");
-        return view('instansi.print', compact('instansi'));
     }
 }

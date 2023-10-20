@@ -19,8 +19,8 @@
           </div>
           @endif
         </div>
-        <div class="card-body px-5 pb-0">
-          <div class="table-responsive p-3">
+        <div class="card-body px-3 pb-2">
+          <div class="table-responsive p-0">
             <table id="table-pembimbing" class="table table-bordered">
                 <thead>
                 <tr>

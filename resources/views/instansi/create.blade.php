@@ -21,11 +21,18 @@
             <div class="card-body">
               <form role="form" action="{{ route('datainstansi.store') }}" class="text-start" method="POST">
                 @csrf
-                  <label class="form-label">Nama Instansi</label>
+                <label class="form-label">Nama Instansi</label>
+                @error('nama_instansi')
+                  <div class="alert alert-danger text-white">{{ $message }}</div>
+                @enderror
                 <div class="input-group input-group-outline my-3">
                   <input type="text" name="nama_instansi" class="form-control">
                 </div>
                 <label class="form-label">No Telepon</label>
+                {{-- tampil error no telp --}}
+                @error('no_telp')
+                  <div class="alert alert-danger text-white">{{ $message }}</div>
+                @enderror
                 <div class="input-group input-group-outline my-3">
                   <input type="number" name="no_telp" class="form-control">
                 </div>

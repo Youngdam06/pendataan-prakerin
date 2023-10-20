@@ -28,10 +28,8 @@
                     <th class="align-middle text-center text-sm">No</th>
                     <th class="align-middle text-center text-sm">NIS</th>
                     <th class="align-middle text-center text-sm">Nama Siswa</th>
+                    <th class="align-middle text-center text-sm">Email Siswa</th>
                     <th class="align-middle text-center text-sm">Kelas</th>
-                    <th class="align-middle text-center text-sm">Jurusan</th>
-                    <th class="align-middle text-center text-sm">Nama Pembimbing</th>
-                    <th class="align-middle text-center text-sm">Nama Instansi</th>
                     <th class="align-middle text-center text-sm" width="200px">Action</th>
                 </tr>
                 </thead>
@@ -41,10 +39,8 @@
                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nis }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->email }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->jurusan }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->nama_pembimbing }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->nama_instansi }}</td>
                     <td>
                         <form action="{{ route('datasiswa.destroy',$data->id) }}" method="POST">
                             <div class="align-middle text-center text-sm">
@@ -60,7 +56,7 @@
                 </tbody>
               </table>
               <div class="container">
-                <a class="btn bg-info btn-dark" href="{{ route('datasiswa.create') }}">Tambah data</a>
+                <a class="btn bg-info btn-dark mt-3" href="{{ route('datasiswa.create') }}">Tambah data</a>
             </div>
           </div>
         </div>
@@ -78,6 +74,7 @@
     $('#table-siswa').DataTable();
   });
 </script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
         // Mengambil semua tombol delete dengan ID "btnDelete"
@@ -87,19 +84,48 @@
             button.addEventListener("click", function (event) {
                 event.preventDefault();
 
-                // Tampilkan prompt konfirmasi
-                var confirmation = confirm("Apakah Anda yakin ingin menghapus data ini?");
-
-                if (confirmation) {
-                    // Jika pengguna mengonfirmasi, lanjutkan dengan mengirimkan formulir
-                    // Dalam hal ini, formulir di dalam loop di atas
-                    button.closest("form").submit();
-                } else {
-                    // Jika pengguna membatalkan, tidak ada tindakan yang diambil
-                    alert("Penghapusan dibatalkan.");
-                }
+                Swal.fire({
+                    title: 'Konfirmasi Hapus Data',
+                    text: "Apakah Anda yakin ingin menghapus data ini?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Hapus',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Jika pengguna mengonfirmasi, lanjutkan dengan mengirimkan formulir
+                        // Dalam hal ini, formulir di dalam loop di atas
+                        button.closest("form").submit();
+                    } else {
+                        // Jika pengguna membatalkan, tidak ada tindakan yang diambil
+                        Swal.fire(
+                            'Dibatalkan',
+                            'Data tidak dihapus',
+                            'info'
+                        );
+                    }
+                });
             });
         });
     });
+</script>
+<script>
+  @if (session()->has('success'))
+  Swal.fire({
+      icon: 'success',
+      title: 'Data Berhasil Ditambah!',
+      text: '{{ session()->get('success') }}'
+  });
+  @endif
+
+  @if (session()->has('success2'))
+  Swal.fire({
+      icon: 'success',
+      title: 'Data Berhasil Diubah!',
+      text: '{{ session()->get('success2') }}'
+  });
+  @endif
 </script>
 @endsection

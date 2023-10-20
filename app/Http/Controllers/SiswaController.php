@@ -83,7 +83,7 @@ class SiswaController extends Controller
     {
         $siswa = Siswa::firstWhere('id', $id);
         $instansi = Instansi::pluck('nama_instansi', 'id');
-        $pembimbing = Pembimbing::pluck('nama', 'id');
+        $pembimbing = Pembimbing::pluck('nama_pembimbing', 'id');
         return view('siswa/edit', compact('siswa', 'instansi', 'pembimbing'));
     }
 
@@ -93,13 +93,13 @@ class SiswaController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'nis' => 'required|numeric|unique:siswa,nis,' . $id,
+            'nis' => 'required|numeric|unique:siswa,nis,' . $id, // Menghindari validasi unik untuk dirinya sendiri
             'nama' => 'required',
             'no_telp' =>'required',
             'kelas' =>'required',
             'jurusan' =>'required',
             'angkatan' =>'required',
-            'email' => 'required|email|unique:pembimbing,email,' . $id,
+            'email' => 'required|email|unique:pembimbing,email,' . $id, // Menghindari validasi unik untuk dirinya sendiri
             'id_instansi' =>'required',
             'id_pembimbing' =>'required',
         ], [
@@ -128,7 +128,7 @@ class SiswaController extends Controller
         $siswa->id_instansi = $request->id_instansi;
         $siswa->id_pembimbing = $request->id_pembimbing;
         $siswa->save();
-        return redirect()->route('datasiswa.index')->with('success', 'Data pembimbing berhasil diubah!');
+        return redirect()->route('datasiswa.index')->with('success2', 'Data pembimbing berhasil diubah!');
 
     }
 
