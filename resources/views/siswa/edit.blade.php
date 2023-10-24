@@ -45,8 +45,13 @@
                                 </div>
                                 <label class="form-label">Jurusan</label>
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="text" name="jurusan" value="{{ $siswa->jurusan }}"class="form-control">
-                                </div>
+                                    {{-- <input type="text" name="jurusan" class="form-control"> --}}
+                                    <select name="jurusan" class="form-select form-select-outline my-3">
+                                        <option value="Multimedia">Multimedia</option>
+                                        <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+                                        <option value="Otomatisasi Tata Kelola Perkantoran">Otomatisasi Tata Kelola Perkantoran</option>
+                                    </select>
+                                    </div>
                                 <label class="form-label">Angkatan</label>
                                 <div class="input-group input-group-outline my-3">
                                     <input type="text" name="angkatan"

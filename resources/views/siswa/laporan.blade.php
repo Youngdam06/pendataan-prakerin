@@ -13,15 +13,6 @@
                     <h6 class="text-white text-capitalize ps-3">Laporan Data Siswa</h6>
                 </div>
             </div>
-            <div class="alert">
-                @if ($message = Session::get('success'))
-                    <div class="alert alert-success alert-dismissable text-white">
-                        <p>{{ $message }}</p><button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
-                    </div>
-                @endif
-            </div>
-
             <div class="card-body px-1 pb-0">
                 <div class="table-responsive p-3">
                     <table id="laporan-siswa" class="table table-bordered mt-0">
@@ -40,10 +31,10 @@
                             @foreach ($siswa as $data)
                                 <tr>
                                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nis }}</td>
-                                    <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
+                                    <td class="align-middle text-center text-sm">{{ $data->nis }}</td>
+                                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama }}</td>
                                     <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
-                                    <td class="align-middle text-center text-sm">{{ $data->jurusan }}</td>
+                                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
                                     <td class="align-middle text-center text-sm">{{ $data->nama_pembimbing }}</td>
                                     <td class="align-middle text-center text-sm">{{ $data->nama_instansi }}</td>
                                 </tr>

@@ -28,7 +28,7 @@ class LoginsController extends Controller
             $request->session()->regenerate();
             return redirect('/');
         }else{
-            return redirect('/signin');
+            return redirect('/signin-admin');
         }
     }
 
@@ -63,20 +63,14 @@ class LoginsController extends Controller
         Admin::create($validatedData);
 
         // Jika berhasil membuat admin, arahkan ke halaman signin
-        return redirect('signin');
+        return redirect('signin-admin');
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-        return view('logout'); // Gantilah 'logout' dengan tampilan logout Anda.
-
-        // $response = response()->redirectToRoute('signin'); // Ganti 'signin' dengan rute halaman login Anda
-
-        // // Set header untuk mengontrol cache
-        // $response->header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
-        // $response->header('Pragma', 'no-cache');
-
-        // return $response;
+        $request->session()->invalidate();
+        $request->session()->regenerateToken(); 
+        return redirect('signin-admin');
     }
 }

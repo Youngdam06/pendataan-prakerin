@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,13 +33,15 @@
     <a class="navbar-brand m-0" >
         <img src="/assets/img/icon4.png" class="navbar-brand-img h-100" alt="main_logo">
         @if (Auth::guard('admin')->check())
-        @if (Auth::guard('admin')->user()->nama)
-            <span class="ms-3 font-weight-bold text-white mt-5">Hai, {{ Auth::guard('admin')->user()->nama }}!</span>
+        <span class="font-weight-bold text-white mt-5">
+            Hai, {{ Auth::guard('admin')->user()->nama }}
+        </span>
+        @elseif (Auth::guard('pembimbing')->check())
+            <span class="font-weight-bold text-white mt-5">
+                Hai, {{ Auth::guard('pembimbing')->user()->nama_pembimbing }}
+            </span>
         @else
-            <span class="ms-1 font-weight-bold text-white">Nama Tidak Tersedia</span>
-        @endif
-        @else
-        <span class="ms-1 font-weight-bold text-white">Pengguna Belum Login</span>
+            <span class="font-weight-bold text-white mt-5">Pengguna Belum Login</span>
         @endif
     </a>
     </div>
@@ -62,6 +63,7 @@
         </a>
     </li>
     {{-- dropdown link halaman kelola data --}}
+    @if(Auth::guard('admin')->user())
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -76,6 +78,20 @@
             <li><a class="dropdown-item" href="{{Route('dataprakerin.index')}}">Kelola Data Prakerin</a></li>
         </ul>
     </li>
+    @endif
+
+    @if(Auth::guard('pembimbing')->user())
+    <li class="nav-item">
+        <a class="nav-link text-white" href="/kelola-penilaian">
+        
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">table_view</i>
+            </div>
+        
+        <span class="nav-link-text ms-1">Kelola Penilaian Siswa</span>
+        </a>
+    </li>
+    @endif
     {{-- dropdown link halaman laporan data --}}
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -127,7 +143,7 @@
               </div>
             </a>
           </li>
-          <li class="nav-item px-3 d-flex align-items-center">
+        <li class="nav-item px-3 d-flex align-items-center">
     </nav>
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
     <div class="ms-md-auto pe-md-3 d-flex align-items-center">

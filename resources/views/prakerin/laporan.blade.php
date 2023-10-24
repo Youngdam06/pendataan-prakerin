@@ -15,12 +15,6 @@
         </div>
         <div class="card-body px-3 pb-2">
           <div class="table-responsive p-0">
-            @if ($message = Session::get('success'))
-            <div class="alert alert-success alert-dismissable text-white">
-                <p>{{ $message }}</p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            @endif
-            
             <table id="laporan-prakerin" class="table table-bordered">
                 <thead>
                 <tr>
@@ -39,14 +33,14 @@
                 @foreach ($prakerin as $data)
                 <tr>
                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->tanggal_awal }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->tanggal_awal }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->tanggal_akhir }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->nis }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
+                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->jurusan }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->nama_instansi }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->nama_pembimbing }}</td>
+                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
+                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_instansi }}</td>
+                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_pembimbing }}</td>
                 </tr>
                 @endforeach
                 </tbody>

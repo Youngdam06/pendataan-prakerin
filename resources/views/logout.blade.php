@@ -8,7 +8,7 @@
     <script>
         // Tambahkan kode JavaScript untuk mengarahkan ke halaman login setelah beberapa detik
         setTimeout(function() {
-            window.location.href = '/signin'; // Gantilah '/signin' dengan rute halaman login Anda
+            window.location.href = '/signin-admin'; // Gantilah '/signin' dengan rute halaman login Anda
         }, 2000); // Mengarahkan ke halaman login setelah 2 detik
     </script>
     

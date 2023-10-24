@@ -58,7 +58,7 @@
                 {{-- <input type="text" name="jurusan" class="form-control"> --}}
                 <select name="jurusan" class="form-select form-select-outline my-3">
                     <option value="Multimedia">Multimedia</option>
-                    <option value="Rakayasa Perangkat Lunak">Rakayasa Perangkat Lunak</option>
+                    <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
                     <option value="Otomatisasi Tata Kelola Perkantoran">Otomatisasi Tata Kelola Perkantoran</option>
                 </select>
                 </div>

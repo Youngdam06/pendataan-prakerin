@@ -44,7 +44,7 @@ class PrakerinController extends Controller
         ]);
         // Simpan data jika validasi berhasil
             Prakerin::create($request->all());
-            return redirect()->route('dataprakerin.index')->with('success2', 'Data Prakerin berhasil ditambahkan.');
+            return redirect()->route('dataprakerin.index')->with('success', 'Data Prakerin berhasil ditambahkan.');
     }
 
     /**
@@ -87,7 +87,7 @@ class PrakerinController extends Controller
         $prakerin->tanggal_akhir = $request->tanggal_akhir;
         $prakerin->id_siswa = $request->id_siswa;
         $prakerin->save();
-        return redirect()->route('dataprakerin.index')->with('success', 'Data Prakerin berhasil diubah!');
+        return redirect()->route('dataprakerin.index')->with('success2', 'Data Prakerin berhasil diubah!');
     }
 
     /**

@@ -38,7 +38,7 @@
                     <td class="align-middle text-center text-sm">{{ $data->no_telp }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->nis }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->jurusan }}</td>
+                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->tanggal_awal }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->tanggal_akhir }}</td>
                 </tr>

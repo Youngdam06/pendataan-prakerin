@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pembimbing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class PembimbingController extends Controller
 {
@@ -36,7 +37,8 @@ class PembimbingController extends Controller
             'nik' => 'required|numeric|unique:pembimbing,nik',
             'nama_pembimbing' => 'required',
             'no_telp' =>'required',
-            'email' => 'required|email|unique:pembimbing,email'
+            'email' => 'required|email|unique:pembimbing,email',
+            'password' =>'required',
         ], [
             'nik.required' => 'NIK wajib diisi.',
             'nama_pembimbing.required' => 'Nama pembimbing wajib diisi.',
@@ -45,6 +47,8 @@ class PembimbingController extends Controller
             'email.email' => 'Alamat email tidak valid.',
             'email.unique' => 'Alamat email sudah ada.',
         ]);
+        // hash password
+        $request['password'] = Hash::make($request['password']);
 
         // simpan data jika berhasil
         Pembimbing::create($request->all());
