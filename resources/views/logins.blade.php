@@ -54,11 +54,11 @@
     </section>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
-        @if (session()->has('berhasil'))
+        @if (session()->has('berhasil-logout'))
             Swal.fire({
                 icon: 'success',
-                title: 'Anda Berhasil Register!',
-                text: '{{ session()->get('berhasil') }}'
+                title: 'Logout!',
+                text: '{{ session()->get('berhasil-logout') }}'
             });
         @endif
     </script>

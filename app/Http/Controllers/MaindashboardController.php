@@ -7,6 +7,7 @@ use App\Models\Instansi;
 use App\Models\Prakerin;
 use App\Models\Pembimbing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MaindashboardController extends Controller
 {
@@ -16,6 +17,7 @@ class MaindashboardController extends Controller
         $siswa = Siswa::count();
         $pembimbing = Pembimbing::count();
         $prakerin = Prakerin::count();
-        return view('maindash', compact('instansi', 'siswa', 'pembimbing', 'prakerin'));
+        $prakerin1 = DB::select("CALL tampilkan_data_innerjoin_prakerinn()");
+        return view('maindash', compact('instansi', 'siswa', 'pembimbing', 'prakerin', 'prakerin1'));
     }
 }

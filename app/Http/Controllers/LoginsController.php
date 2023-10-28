@@ -71,6 +71,6 @@ class LoginsController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken(); 
-        return redirect('signin-admin');
+        return redirect('signin-admin')->with('berhasil-logout', 'Anda telah Logout!');
     }
 }

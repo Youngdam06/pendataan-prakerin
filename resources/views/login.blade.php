@@ -64,6 +64,13 @@
                 text: '{{ session()->get('berhasil') }}'
             });
         @endif
+        @if (session()->has('berhasil-logout'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Logout!',
+                text: '{{ session()->get('berhasil-logout') }}'
+            });
+        @endif
     </script>
 </body>
 

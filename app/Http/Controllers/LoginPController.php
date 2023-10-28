@@ -31,9 +31,10 @@ class LoginPController extends Controller
 
     public function logout(Request $request)
     {
+        Session::flash('logoutBerhasil', 'Anda telah logout!');
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken(); 
-        return redirect('signin-pembimbing');
+        return redirect('signin-pembimbing')->with('berhasil-logout', 'Anda telah Logout!');
     }
 }

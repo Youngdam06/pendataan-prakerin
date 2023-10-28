@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use App\Models\Prakerin;
+use App\Exports\ExportNilai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PrakerinController extends Controller
 {

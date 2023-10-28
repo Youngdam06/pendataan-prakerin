@@ -41,8 +41,11 @@
                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_instansi }}</td>
                     <td>
                         <div class="align-middle text-center text-sm">
-                            <a class="btn btn-info" href="{{ route('dataprakerin.edit',$data->id) }}">Nilai</a>
+                            <a class="btn btn-info" href="{{ route('createNilai', $data->id) }}">Nilai</a>
                         </div>
+                        {{-- <div class="align-middle text-center text-sm">
+                            <a class="btn btn-info" href="{{ route('exportNilai', ['id' => $data->id]) }}">Nilai</a>
+                        </div> --}}
                     </td>
                 </tr>
                 @endforeach
@@ -68,11 +71,11 @@
 </script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-@if (session()->has('success2'))
+@if (session()->has('success'))
 Swal.fire({
     icon: 'success',
-    title: 'Data Berhasil Diubah!',
-    text: '{{ session()->get('success2') }}'
+    title: 'Data Berhasil di Tambah!',
+    text: '{{ session()->get('success') }}'
 });
 @endif
 </script>

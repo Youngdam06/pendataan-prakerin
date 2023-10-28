@@ -32,6 +32,7 @@ Route::get('/logout', [LoginsController::class, 'logout'])->name('logout');
 // route sesi login dan logout pembimbing
 Route::get('/signin-pembimbing', [LoginPController::class, 'index']);
 Route::post('/post-pembimbing', [LoginPController::class, 'postLogin'])->name('postPemb');
+Route::get('/logoutP', [LoginPController::class, 'logout'])->name('logout');
 
 // routing middleware untuk guard admin dan pembimbing
 Route::middleware(['auth:admin,pembimbing'])->group(function() {
@@ -49,8 +50,13 @@ Route::middleware(['auth:admin,pembimbing'])->group(function() {
     route::get('laporan-data-prakerin', [PrakerinController::class, 'laporan_data'])->name('laporanprakerin');
 
     // kelola penilaian siswa pembimbing
-    route::get('/kelola-penilaian', [PenilaianController::class, 'index']);
-    route::post('/beri-nilai', [PenilaianController::class, 'postNilai'])->name('postNilai');
+    route::get('nilai', [PenilaianController::class, 'index'])->name('indexNilai');
+    route::get('create-nilai/{id}', [PenilaianController::class, 'create'])->name('createNilai');
+    route::post('create-nilai-store/{id}', [PenilaianController::class, 'store'])->name('postNilai');
+    route::get('laporan-nilai', [PenilaianController::class, 'laporanNilai'])->name('laporan-nilai');
+    route::get('nilai/export/excel/{id}', [PenilaianController::class, 'export_nilai'])->name('exportNilai');
+    route::post('/import-excel', [PenilaianController::class, 'import_nilai'])->name('importExcel');
+
 });
 
 // Route::middleware(['auth:pembimbing'])->group(function() {

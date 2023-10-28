@@ -48,7 +48,10 @@
                 <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                <input type="number" name="kelas" class="form-control">
+                    <select name="kelas" class="form-select form-select-outline my-3">
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
                 </div>
                 <label class="form-label">Jurusan</label>
                 @error('jurusan')

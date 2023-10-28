@@ -79,10 +79,10 @@
         </ul>
     </li>
     @endif
-
+    
     @if(Auth::guard('pembimbing')->user())
     <li class="nav-item">
-        <a class="nav-link text-white" href="/kelola-penilaian">
+        <a class="nav-link text-white" href="/nilai">
         
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">table_view</i>
@@ -93,6 +93,7 @@
     </li>
     @endif
     {{-- dropdown link halaman laporan data --}}
+    @if(Auth::guard('admin')->user())
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -101,14 +102,24 @@
         <span class="nav-link-text ms-1">Laporan Data</span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <li><a class="dropdown-item" href="{{Route('laporansiswa')}}">Laporan Data Siswa</a></li>
-        <li><a class="dropdown-item" href="{{Route('laporanpembimbing')}}">Laporan Data Pembimbing</a></li>
-        <li><a class="dropdown-item" href="{{Route('laporaninstansi')}}">Laporan Data Instansi</a></li>
-        <li><a class="dropdown-item" href="{{Route('laporanprakerin')}}">Laporan Data Prakerin</a></li>
+            <li><a class="dropdown-item" href="{{Route('laporansiswa')}}">Laporan Data Siswa</a></li>
+            <li><a class="dropdown-item" href="{{Route('laporanpembimbing')}}">Laporan Data Pembimbing</a></li>
+            <li><a class="dropdown-item" href="{{Route('laporanprakerin')}}">Laporan Data Prakerin</a></li>
         </ul>
     </li>
-    </ul>
-    </div>
+    @endif
+    <li class="nav-item">
+        <a class="nav-link text-white" href="/laporan-nilai">
+        
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">table_view</i>
+            </div>
+        
+        <span class="nav-link-text ms-1">Laporan Penilaian</span>
+        </a>
+    </li>
+    </ul
+</div>
 </aside>
 {{-- end sidebar --}}
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -122,6 +133,19 @@
             
         </nav>
         
+        @if(Auth::guard('pembimbing')->user())
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                <li class="nav-item d-flex align-items-center" method="POST">
+                    <span class="d-sm-inline d-none"></span>
+                    <a href="/logoutP" class="nav-link text-body font-weight-bold px-0">
+                    <i class="fa fa-user me-sm-1"></i>
+                    <span class="d-sm-inline d-none">Sign out</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+        @elseif(Auth::guard('admin')->user())
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                 <li class="nav-item d-flex align-items-center" method="POST">
@@ -133,6 +157,7 @@
                 </li>
             </div>
         </div>
+        @endif
         </div>
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">

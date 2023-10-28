@@ -52,6 +52,8 @@ class SiswaController extends Controller
             'nis.unique' => 'NIS sudah ada.',
             'nama.required' => 'Nama pembimbing wajib diisi.',
             'no_telp.required' => 'nomor telepon wajib diisi.',
+            'no_telp.max' => 'nomor telepon tidak boleh lebih panjang dari 20 angka.',
+            'no_telp.min' => 'nomor telepon tidak boleh lebih pendek dari 10 angka.',
             'kelas.required' => 'kelas wajib diisi.',
             'jurusan.required' => 'jurusan wajib diisi.',
             'angkatan.required' => 'angkatan wajib diisi.',
