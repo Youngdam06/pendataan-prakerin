@@ -113,7 +113,11 @@ class PenilaianController extends Controller
     public function laporanNilai()
     {
         // call store procedure untuk menampilkan data penilaian
-        $nilaiadmin = DB::select("CALL tampilkan_data_penilaian_admin()");
-        return view('nilai-admin', compact('nilaiadmin'));
+        $nilai = DB::select("CALL tampilkan_data_penilaian_admin()");
+         // Iterasi melalui data penilaian dan menghitung total nilai untuk setiap baris
+        foreach ($nilai as $data) {
+            $data->ttl_nilai = $data->ketepatan_waktu + $data->sikap_kerja + $data->tanggung_jawab + $data->kehadiran + $data->kemampuan_kerja + $data->keterampilan_kerja + $data->kualitas_kerja + $data->berkomunikasi + $data->kerjasama + $data->kerajinan + $data->rasa_pd + $data->mematuhi_aturan + $data->penampilan;
+        }
+        return view('nilai', compact('nilai'));
     }
 }

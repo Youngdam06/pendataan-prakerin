@@ -26,7 +26,6 @@
                                 {{ session()->get('loginError') }}
                             </div>
                         @endif
-                        <h3 class="text-center">Admin</h3>
                         @csrf
                         <!-- Email input -->
                         <label class="form-label" for="email">Email</label>

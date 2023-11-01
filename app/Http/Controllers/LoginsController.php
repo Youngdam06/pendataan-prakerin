@@ -27,8 +27,11 @@ class LoginsController extends Controller
         if(Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
             return redirect('/');
+        } elseif (Auth::guard('pembimbing')->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect('/');
         }else{
-            return redirect('/signin-admin');
+            return redirect('/signin');
         }
     }
 
@@ -63,14 +66,17 @@ class LoginsController extends Controller
         Admin::create($validatedData);
 
         // Jika berhasil membuat admin, arahkan ke halaman signin
-        return redirect('signin-admin');
+        return redirect('signin');
     }
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::logout(); 
+
+        $request->session()->forget('email');
         $request->session()->invalidate();
         $request->session()->regenerateToken(); 
-        return redirect('signin-admin')->with('berhasil-logout', 'Anda telah Logout!');
+
+        return redirect('signin')->with('berhasil-logout', 'Anda telah Logout!');
     }
 }

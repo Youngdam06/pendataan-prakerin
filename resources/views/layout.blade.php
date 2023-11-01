@@ -118,7 +118,7 @@
         <span class="nav-link-text ms-1">Laporan Penilaian</span>
         </a>
     </li>
-    </ul
+</ul>
 </div>
 </aside>
 {{-- end sidebar --}}
@@ -131,33 +131,20 @@
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <h6 class="font-weight-bolder mb-0">Informasi Pendataan Prakerin Siswa<br></h6>
             
-        </nav>
+            </nav>
         
-        @if(Auth::guard('pembimbing')->user())
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                 <li class="nav-item d-flex align-items-center" method="POST">
                     <span class="d-sm-inline d-none"></span>
-                    <a href="/logoutP" class="nav-link text-body font-weight-bold px-0">
+                    <a href="/logout" id="logOutButton" class="nav-link text-body font-weight-bold px-0">
                     <i class="fa fa-user me-sm-1"></i>
-                    <span class="d-sm-inline d-none">Sign out</span>
+                    <span class="d-sm-inline d-none">Log out</span>
                     </a>
                 </li>
             </div>
         </div>
-        @elseif(Auth::guard('admin')->user())
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                <li class="nav-item d-flex align-items-center" method="POST">
-                    <span class="d-sm-inline d-none"></span>
-                    <a href="/logout" class="nav-link text-body font-weight-bold px-0">
-                    <i class="fa fa-user me-sm-1"></i>
-                    <span class="d-sm-inline d-none">Sign out</span>
-                    </a>
-                </li>
-            </div>
-        </div>
-        @endif
+        
         </div>
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -472,6 +459,37 @@
 {{-- <script async defer src="https://buttons.github.io/buttons.js"></script> --}}
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="/assets/js/material-dashboard.min.js?v=3.0.4"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const logOutButton = document.querySelector('#logOutButton');
+
+        logOutButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Apakah Anda yakin ingin keluar?',
+                text: "Anda akan logout dari akun Anda.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Logout',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Tambahkan aksi logout di sini, misalnya:
+                    window.location.href = '/logout'; // Gantilah ini sesuai dengan URL logout Anda.
+                }
+                else {
+                    // Jika pengguna membatalkan, tidak ada tindakan yang diambil
+                    Swal.fire(
+                        'Dibatalkan',
+                        'Tidak jadi logout',
+                        'info'
+                    );
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>

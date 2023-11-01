@@ -34,11 +34,12 @@
                                     <th class="align-middle text-center text-sm">Rasa Percaya Diri</th>
                                     <th class="align-middle text-center text-sm">Mematuhi Aturan</th>
                                     <th class="align-middle text-center text-sm">Penampilan</th>
+                                    <th class="align-middle text-center text-sm">Total Nilai</th>
                                     <th class="align-middle text-center text-sm">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($nilaiadmin as $data)
+                                @foreach ($nilai as $data)
                                     <tr>
                                         <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                                         <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_siswa }}</td>
@@ -56,6 +57,7 @@
                                         <td class="align-middle text-center text-sm">{{ $data->rasa_pd }}</td>
                                         <td class="align-middle text-center text-sm">{{ $data->mematuhi_aturan }}</td>
                                         <td class="align-middle text-center text-sm">{{ $data->penampilan }}</td>
+                                        <td class="align-middle text-center text-sm">{{ $data->ttl_nilai }}</td>
                                         <td class="align-middle text-center text-sm">
                                             <a href="{{ route('exportNilai', ['id' => $data->id]) }}" class="btn btn-success btn-sm">Export</a>
                                         </td>
@@ -94,7 +96,7 @@
             $('#laporan-siswa').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
-                    'pdf', 'print'
+                    'print'
                 ]
             });
         });

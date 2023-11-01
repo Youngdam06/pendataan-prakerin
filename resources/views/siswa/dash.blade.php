@@ -83,7 +83,6 @@
         deleteButtons.forEach(function (button) {
             button.addEventListener("click", function (event) {
                 event.preventDefault();
-
                 Swal.fire({
                     title: 'Konfirmasi Hapus Data',
                     text: "Apakah Anda yakin ingin menghapus data ini?",

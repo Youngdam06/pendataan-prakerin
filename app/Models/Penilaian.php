@@ -25,5 +25,6 @@ class Penilaian extends Model
         'rasa_pd',
         'mematuhi_aturan',
         'penampilan',
+        'ttl_nilai',
     ];
 }
