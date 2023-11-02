@@ -1,13 +1,5 @@
 @extends('layout')
 @section('konten')
-@if (session()->has('loginBerhasil'))
-    <div class="alert alert-success alert-dismissable text-light text-center">
-        {{ session()->get('loginBerhasil') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-        </button>
-    </div>
-@endif
-
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">

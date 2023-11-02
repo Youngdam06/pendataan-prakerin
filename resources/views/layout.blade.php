@@ -4,8 +4,6 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="Cache-Control" content="no-store" />
-<meta http-equiv="Pragma" content="no-cache" />
 <link rel="icon" type="image/png" href="/assets/img/icon4.png">
 <title>
     Pendataan Prakerin

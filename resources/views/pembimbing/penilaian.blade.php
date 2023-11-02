@@ -40,12 +40,22 @@
                     <td class="align-middle text-center text-sm">{{ $data->tanggal_akhir }}</td>
                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_instansi }}</td>
                     <td>
+                      @if (!$data->sudahDinilai) <!-- Tambahkan kondisi ini -->
+                        @if (strtotime($data->tanggal_akhir) < strtotime(date('Y-m-d'))) <!-- Tambahkan kondisi ini -->
                         <div class="align-middle text-center text-sm">
-                            <a class="btn btn-info" href="{{ route('createNilai', $data->id) }}">Nilai</a>
+                          <a class="btn btn-info" href="{{ route('createNilai', $data->id) }}">Nilai</a>
                         </div>
-                        {{-- <div class="align-middle text-center text-sm">
-                            <a class="btn btn-info" href="{{ route('exportNilai', ['id' => $data->id]) }}">Nilai</a>
-                        </div> --}}
+                        @else
+                        <div class="align-middle text-center text-sm">
+                          <button class="btn btn-info" onclick="showAlert()">Nilai</button>
+                        </div>
+                        @endif
+                      
+                      @else
+                      <div class="align-middle text-center text-sm text-danger">
+                        Sudah Dinilai
+                      </div>
+                      @endif
                     </td>
                 </tr>
                 @endforeach
@@ -70,6 +80,15 @@
     });
 </script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+  function showAlert() {
+      Swal.fire({
+          icon: 'warning',
+          title: 'Belum bisa dinilai!',
+          text: 'Karena siswa belum selesai prakerin',
+      });
+  }
+</script>
 <script>
 @if (session()->has('success'))
 Swal.fire({

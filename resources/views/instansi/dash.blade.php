@@ -14,12 +14,6 @@
         </div>
         <div class="card-body px-3 pb-2">
           <div class="table-responsive p-0">
-            @if ($message = Session::get('success'))
-            <div class="alert alert-success alert-dismissable text-white">
-                <p>{{ $message }}</p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            @endif
-            
             <table id="table-instansi" class="table table-bordered">
                 <thead>
                 <tr>
@@ -92,6 +86,11 @@
                         // Jika pengguna mengonfirmasi, lanjutkan dengan mengirimkan formulir
                         // Dalam hal ini, formulir di dalam loop di atas
                         button.closest("form").submit();
+                        Swal.fire(
+                            'Berhasil',
+                            'Data berhasil dihapus',
+                            'info'
+                        );
                     } else {
                         // Jika pengguna membatalkan, tidak ada tindakan yang diambil
                         Swal.fire(

@@ -21,6 +21,11 @@ class PenilaianController extends Controller
 
         // Mengambil data siswa prakerin yang dibimbing oleh pembimbing yang login
         $penilaian = DB::select("CALL tampilkan_data_innerjoin_penilaian_pembimbing('{$pembimbing->id}')");
+        
+        foreach ($penilaian as $siswa) {
+            // Cek apakah siswa sudah dinilai berdasarkan data penilaian dalam database
+            $siswa->sudahDinilai = Penilaian::where('id_siswa', $siswa->id)->exists();
+        }
 
         return view('pembimbing.penilaian', compact('penilaian'));
     }
@@ -58,8 +63,6 @@ class PenilaianController extends Controller
     public function store(Request $request, string $id)
     {
         $request->validate([
-            'id_siswa' => 'unique:penilaian,id_siswa',
-            // 'id_pembimbing' => 'required',
             'ketepatan_waktu' => 'required',
             'sikap_kerja' => 'required',
             'tanggung_jawab' => 'required',
@@ -74,7 +77,19 @@ class PenilaianController extends Controller
             'mematuhi_aturan' => 'required',
             'penampilan' => 'required',
         ],[
-            'id_siswa.unique' => 'Siswa sudah dinilai!.',
+            'ketepatan_waktu.required' => 'field wajib diisi.',
+            'sikap_kerja.required' => 'field wajib diisi.',
+            'tanggung_jawab.required' => 'field wajib diisi.',
+            'kehadiran.required' => 'field wajib diisi.',
+            'kemampuan_kerja.required' => 'field wajib diisi.',
+            'keterampilan_kerja.required' => 'field wajib diisi.',
+            'kualitas_kerja.required' => 'field wajib diisi.',
+            'berkomunikasi.required' => 'field wajib diisi.',
+            'kerjasama.required' => 'field wajib diisi.',
+            'kerajinan.required' => 'field wajib diisi.',
+            'rasa_pd.required' => 'field wajib diisi.',
+            'mematuhi_aturan.required' => 'field wajib diisi.',
+            'penampilan.required' => 'field wajib diisi.',
         ]);
         
         $existingPenilaian = Penilaian::where('id_siswa', $id)->first();
@@ -113,7 +128,7 @@ class PenilaianController extends Controller
     public function laporanNilai()
     {
         // call store procedure untuk menampilkan data penilaian
-        $nilai = DB::select("CALL tampilkan_data_penilaian_admin()");
+        $nilai = DB::select("CALL tampilkan_laporan_data_penilaian()");
          // Iterasi melalui data penilaian dan menghitung total nilai untuk setiap baris
         foreach ($nilai as $data) {
             $data->ttl_nilai = $data->ketepatan_waktu + $data->sikap_kerja + $data->tanggung_jawab + $data->kehadiran + $data->kemampuan_kerja + $data->keterampilan_kerja + $data->kualitas_kerja + $data->berkomunikasi + $data->kerjasama + $data->kerajinan + $data->rasa_pd + $data->mematuhi_aturan + $data->penampilan;

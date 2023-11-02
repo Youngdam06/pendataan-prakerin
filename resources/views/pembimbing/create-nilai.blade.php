@@ -22,7 +22,7 @@
                             <form role="form" action="{{ route('postNilai', $penilaian->id) }}" class="text-start"
                                 method="POST">
                                 @csrf
-                                @if(session('error-siswa'))
+                                @if (session('error-siswa'))
                                     <div class="alert alert-danger text-white">
                                         {{ session('error-siswa') }}
                                     </div>
@@ -32,91 +32,103 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="ketepatan_waktu" class="form-control">
+                                    <input type="number" name="ketepatan_waktu" class="form-control"
+                                        value="{{ old('ketepatan_waktu') }}">
                                 </div>
                                 <label class="form-label">Sikap Kerja</label>
                                 @error('sikap_kerja')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="sikap_kerja" class="form-control">
+                                    <input type="number" name="sikap_kerja" class="form-control"
+                                        value="{{ old('sikap_kerja') }}">
                                 </div>
                                 <label class="form-label">Tanggung Jawab</label>
                                 @error('tanggung_jawab')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="tanggung_jawab" class="form-control">
+                                    <input type="number" name="tanggung_jawab" class="form-control"
+                                        value="{{ old('tanggung_jawab') }}">
                                 </div>
                                 <label class="form-label">Kehadiran</label>
                                 @error('kehadiran')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="kehadiran" class="form-control">
+                                    <input type="number" name="kehadiran" class="form-control"
+                                        value="{{ old('kehadiran') }}">
                                 </div>
                                 <label class="form-label">Kemampuan Kerja</label>
                                 @error('kemampuan_kerja')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="kemampuan_kerja" class="form-control">
+                                    <input type="number" name="kemampuan_kerja" class="form-control"
+                                        value="{{ old('kemampuan_kerja') }}">
                                 </div>
                                 <label class="form-label">Keterampilan Kerja</label>
                                 @error('keterampilan_kerja')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="keterampilan_kerja" class="form-control">
+                                    <input type="number" name="keterampilan_kerja" class="form-control"
+                                        value="{{ old('keterampilan_kerja') }}">
                                 </div>
                                 <label class="form-label">Kualitas Kerja</label>
                                 @error('kualitas_kerja')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="kualitas_kerja" class="form-control">
+                                    <input type="number" name="kualitas_kerja" class="form-control"
+                                        value="{{ old('kualitas_kerja') }}">
                                 </div>
                                 <label class="form-label">Berkomunikasi</label>
                                 @error('berkomunikasi')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="berkomunikasi" class="form-control">
+                                    <input type="number" name="berkomunikasi" class="form-control"
+                                        value="{{ old('berkomunikasi') }}">
                                 </div>
                                 <label class="form-label">Kerjasama</label>
                                 @error('kerjasama')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="kerjasama" class="form-control">
+                                    <input type="number" name="kerjasama" class="form-control"
+                                        value="{{ old('kerjasama') }}">
                                 </div>
                                 <label class="form-label">Kerajinan</label>
                                 @error('kerajinan')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="kerajinan" class="form-control">
+                                    <input type="number" name="kerajinan" class="form-control"
+                                        value="{{ old('kerajinan') }}">
                                 </div>
                                 <label class="form-label">Rasa Percaya Diri</label>
                                 @error('rasa_pd')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="rasa_pd" class="form-control">
+                                    <input type="number" name="rasa_pd" class="form-control" value="{{ old('rasa_pd') }}">
                                 </div>
                                 <label class="form-label">Mematuhi Aturan</label>
                                 @error('mematuhi_aturan')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="mematuhi_aturan" class="form-control">
+                                    <input type="number" name="mematuhi_aturan" class="form-control"
+                                        value="{{ old('mematuhi_aturan') }}">
                                 </div>
                                 <label class="form-label">Penampilan</label>
                                 @error('penampilan')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="penampilan" class="form-control">
+                                    <input type="number" name="penampilan" class="form-control"
+                                        value="{{ old('penampilan') }}">
                                 </div>
 
                                 <div class="text-center">
