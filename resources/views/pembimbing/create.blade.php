@@ -26,37 +26,35 @@
                             <div class="alert alert-danger text-white">{{ $message }}</div>
                         @enderror
                     <div class="input-group input-group-outline my-3">
-                        <input type="number" name="nik" class="form-control">
+                        <input type="number" name="nik" class="form-control" value="{{ old('nik') }}">
                     </div>
                     <label class="form-label">Nama Pembimbing</label>
                         @error('nama_pembimbing')
                             <div class="alert alert-danger text-white">{{ $message }}</div>
                         @enderror
                     <div class="input-group input-group-outline my-3">
-                        <input type="text" name="nama_pembimbing" class="form-control">
+                        <input type="text" name="nama_pembimbing" class="form-control" value="{{ old('nama_pembimbing') }}">
                     </div>
                     <label class="form-label">Nomor Telepon</label>
                         @error('no_telp')
                             <div class="alert alert-danger text-white">{{ $message }}</div>
                         @enderror
                     <div class="input-group input-group-outline my-3">
-                        <input type="number" name="no_telp" class="form-control">
+                        <input type="number" name="no_telp" class="form-control" value="{{ old('no_telp') }}">
                     </div>
                     <label class="form-label">Email</label>
-                    {{-- tampil error email --}}
                         @error('email')
                             <div class="alert alert-danger text-white">{{ $message }}</div>
                         @enderror
                     <div class="input-group input-group-outline my-3">
-                        <input type="email" name="email" class="form-control">
+                        <input type="email" name="email" class="form-control" value="{{ old('email') }}">
                     </div>
                     <label class="form-label">Password</label>
-                    {{-- tampil error email --}}
                         @error('password')
                             <div class="alert alert-danger text-white">{{ $message }}</div>
                         @enderror
                     <div class="input-group input-group-outline my-3">
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="password" class="form-control" value="{{ old('password') }}">
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2">Tambahkan</button>

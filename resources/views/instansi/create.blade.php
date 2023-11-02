@@ -26,7 +26,7 @@
                   <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                  <input type="text" name="nama_instansi" class="form-control">
+                  <input type="text" name="nama_instansi" class="form-control" value="{{ old('nama_instansi') }}">
                 </div>
                 <label class="form-label">No Telepon</label>
                 {{-- tampil error no telp --}}
@@ -34,7 +34,7 @@
                   <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                  <input type="number" name="no_telp" class="form-control">
+                  <input type="number" name="no_telp" class="form-control" value="{{ old('no_telp') }}">
                 </div>
                 <label class="form-label">Email</label>
                 {{-- tampil error email --}}
@@ -42,7 +42,7 @@
                   <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                  <input type="email" name="email" class="form-control" id="dengan-rupiah">
+                  <input type="email" name="email" class="form-control" value="{{ old('email') }}">>
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2">Tambahkan</button>

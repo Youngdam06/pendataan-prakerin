@@ -27,28 +27,28 @@
                 <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                <input type="number" name="nis" class="form-control">
+                <input type="number" name="nis" class="form-control" value="{{ old('nis') }}">
                 </div>
                 <label class="form-label">Nama Siswa</label>
                 @error('nama')
                 <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                <input type="text" name="nama" class="form-control">
+                <input type="text" name="nama" class="form-control" value="{{ old('nama') }}">
                 </div>
                 <label class="form-label">No Telepon</label>
                 @error('no_telp')
                 <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                <input type="number" name="no_telp" class="form-control">
+                <input type="number" name="no_telp" class="form-control" value="{{ old('no_telp') }}">
                 </div>
                 <label class="form-label">Kelas</label>
                 @error('kelas')
                 <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                    <select name="kelas" class="form-select form-select-outline my-3">
+                    <select name="kelas" class="form-select form-select-outline my-3" value="{{ old('kelas') }}">
                         <option value="11">11</option>
                         <option value="12">12</option>
                     </select>
@@ -58,19 +58,18 @@
                 <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                {{-- <input type="text" name="jurusan" class="form-control"> --}}
-                <select name="jurusan" class="form-select form-select-outline my-3">
+                <select name="jurusan" class="form-select form-select-outline my-3" value="{{ old('jurusan') }}">
                     <option value="Multimedia">Multimedia</option>
                     <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
                     <option value="Otomatisasi Tata Kelola Perkantoran">Otomatisasi Tata Kelola Perkantoran</option>
                 </select>
                 </div>
                 <label class="form-label">Angkatan</label>
-                @error('email')
+                @error('angkatan')
                 <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                <input type="text" name="angkatan" class="form-control">
+                <input type="text" name="angkatan" class="form-control" value="{{ old('angkatan') }}">
                 </div>
                 <label class="form-label">Email</label>
                 {{-- tampil error email --}}
@@ -78,11 +77,11 @@
                 <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                    <input type="email" name="email" class="form-control" id="dengan-rupiah">
+                    <input type="email" name="email" class="form-control" value="{{ old('email') }}">
                 </div>
                 <label class="form-label">Instansi</label>
                 <div class="input-group input-group-outline my-1">
-                    <select name="id_instansi" class="form-select form-select-outline my-3">
+                    <select name="id_instansi" class="form-select form-select-outline my-3" value="{{ old('id_instansi') }}">
                         <option value="">Pilih Instansi</option>
                         @foreach($instansi as $key => $value)
                             <option value="{{ $key }}">{{ $value }}</option>
@@ -91,7 +90,7 @@
                 </div>
                 <label class="form-label">Pembimbing</label>
                 <div class="input-group input-group-outline my-1">
-                    <select name="id_pembimbing" class="form-select">
+                    <select name="id_pembimbing" class="form-select form-select-outline my-3" value="{{ old('id_pembimbing') }}">
                         <option value="">Pilih Pembimbing</option>
                         @foreach($pembimbing as $key => $value)
                             <option value="{{ $key }}">{{ $value }}</option>
@@ -123,11 +122,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
 
     form.addEventListener('submit', function (event) {
-        const namaInstansi = form.querySelector('[name="nama_instansi"]');
+        const nis = form.querySelector('[name="nis"]');
+        const namaSiswa = form.querySelector('[name="nama"]');
         const noTelp = form.querySelector('[name="no_telp"]');
+        const kelas = form.querySelector('[name="kelas"]');
+        const jurusan = form.querySelector('[name="jurusan"]');
+        const angkatan = form.querySelector('[name="angkatan"]');
         const email = form.querySelector('[name="email"]');
+        const instansi = form.querySelector('[name="id_instansi"]');
+        const pembimbing = form.querySelector('[name="id_pembimbing"]');
 
-        if (!namaInstansi.value || !noTelp.value || !email.value) {
+        if (!nis.value || !namaSiswa.value || !noTelp.value
+            || !kelas.value || !jurusan.value || !angkatan.value
+            || !email.value || !instansi.value || !pembimbing.value ) {
             event.preventDefault(); // Mencegah pengiriman form
             alert('Harap isi semua field sebelum menambahkan data.');
         }

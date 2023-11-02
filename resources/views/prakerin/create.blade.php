@@ -23,18 +23,18 @@
                 @csrf
                 <label class="form-label">Tanggal Awal</label>
                 <div class="input-group input-group-outline my-3">
-                <input type="date" name="tanggal_awal" class="form-control"  min="{{ date('Y-m-d') }}">
+                <input type="date" name="tanggal_awal" class="form-control"  min="{{ date('Y-m-d') }}" value="{{ old('tanggal_awal') }}">
                 </div>
                 <label class="form-label">Tanggal Akhir</label>
                 <div class="input-group input-group-outline my-3">
-                <input type="date" name="tanggal_akhir" class="form-control"  min="{{ date('Y-m-d') }}">
+                <input type="date" name="tanggal_akhir" class="form-control"  min="{{ date('Y-m-d') }}" value="{{ old('tanggal_akhir') }}">
                 </div>
                 <label class="form-label">Nama Siswa</label>
                 @error('id_siswa')
                 <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                    <select name="id_siswa" class="form-select form-select-outline my-3">
+                    <select name="id_siswa" class="form-select form-select-outline my-3" value="{{ old('id_siswa') }}">
                         <option value="">Pilih Siswa</option>
                         @foreach($siswa as $key => $value)
                             <option value="{{ $key }}">{{ $value }}</option>
