@@ -43,7 +43,7 @@
                       @if (!$data->sudahDinilai) <!-- Tambahkan kondisi ini -->
                         @if (strtotime($data->tanggal_akhir) < strtotime(date('Y-m-d'))) <!-- Tambahkan kondisi ini -->
                         <div class="align-middle text-center text-sm">
-                          <a class="btn btn-info" href="{{ route('createNilai', $data->id) }}">Nilai</a>
+                          <a class="btn btn-info" href="{{ route('createNilai', $data->id_siswa) }}">Nilai</a>
                         </div>
                         @else
                         <div class="align-middle text-center text-sm">

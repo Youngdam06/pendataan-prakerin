@@ -32,7 +32,6 @@
                             placeholder="Masukkan nomor telepon">
                         </div>
                         <label class="form-label" for="email">Email</label>
-                        {{-- error email --}}
                         @error('email')
                             <div class="alert alert-danger text-black">{{ $message }}</div>
                         @enderror

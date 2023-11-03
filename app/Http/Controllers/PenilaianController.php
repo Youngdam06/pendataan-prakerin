@@ -24,7 +24,7 @@ class PenilaianController extends Controller
         
         foreach ($penilaian as $siswa) {
             // Cek apakah siswa sudah dinilai berdasarkan data penilaian dalam database
-            $siswa->sudahDinilai = Penilaian::where('id_siswa', $siswa->id)->exists();
+            $siswa->sudahDinilai = Penilaian::where('id_siswa', $siswa->id_siswa)->exists();
         }
 
         return view('pembimbing.penilaian', compact('penilaian'));

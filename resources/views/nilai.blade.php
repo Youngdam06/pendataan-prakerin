@@ -59,7 +59,7 @@
                                         <td class="align-middle text-center text-sm">{{ $data->penampilan }}</td>
                                         <td class="align-middle text-center text-sm">{{ $data->ttl_nilai }}</td>
                                         <td class="align-middle text-center text-sm">
-                                            <a href="{{ route('exportNilai', ['id' => $data->id]) }}" class="btn btn-success btn-sm">Export</a>
+                                            <a href="{{ route('exportNilai', ['id' => $data->id_siswa]) }}" class="btn btn-success btn-sm">Export</a>
                                         </td>
                                         
                                     </tr>
