@@ -30,6 +30,7 @@ class ImportNilai implements ToModel
             'rasa_pd' => $row[13],
             'mematuhi_aturan' => $row[14],
             'penampilan' => $row[15],
+            'ttl_nilai' => $row[16],
         ]);
     }
 }

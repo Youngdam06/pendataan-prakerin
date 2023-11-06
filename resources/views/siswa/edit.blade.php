@@ -57,7 +57,7 @@
                                     </div>
                                 <label class="form-label">Angkatan</label>
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="text" name="angkatan"
+                                    <input type="number" name="angkatan"
                                         value="{{ $siswa->angkatan }}"class="form-control">
                                 </div>
                                 <label class="form-label">Email</label>

@@ -118,6 +118,7 @@ class PembimbingController extends Controller
 
     public function laporan_data()
     {
+        // menampilkan data pembimbing untuk halaman laporan pembimbing
         $pembimbing = DB::select("CALL tampilkan_data_innerjoin_pembimbing()");
         return view('pembimbing.laporan', compact('pembimbing'));
     }

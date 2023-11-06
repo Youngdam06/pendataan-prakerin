@@ -32,6 +32,7 @@ class PenilaianController extends Controller
 
     public function create(string $id)
     {
+        // menampilkan halaman create sesuai dengan id siswa yang ingin dinilai
         $penilaian = Siswa::firstWhere('id', $id);
         return view('pembimbing.create-nilai', compact('penilaian'));
     }

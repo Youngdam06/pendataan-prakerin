@@ -69,7 +69,7 @@
                 <div class="alert alert-danger text-white">{{ $message }}</div>
                 @enderror
                 <div class="input-group input-group-outline my-3">
-                <input type="text" name="angkatan" class="form-control" value="{{ old('angkatan') }}">
+                <input type="number" name="angkatan" class="form-control" value="{{ old('angkatan') }}">
                 </div>
                 <label class="form-label">Email</label>
                 {{-- tampil error email --}}
