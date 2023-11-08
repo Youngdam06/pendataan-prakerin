@@ -85,7 +85,7 @@
       Swal.fire({
           icon: 'warning',
           title: 'Belum bisa dinilai!',
-          text: 'Karena siswa belum selesai prakerin',
+          text: 'Karena siswa belum selesai prakerin / belum memulai prakerin',
       });
   }
 </script>

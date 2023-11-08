@@ -101,6 +101,9 @@ class PenilaianController extends Controller
 
         $id_pembimbing = Auth::guard('pembimbing')->user()->id;
 
+        // Menghitung nilai total (ttl_nilai)
+        $ttl_nilai = $request->ketepatan_waktu + $request->sikap_kerja + $request->tanggung_jawab + $request->kehadiran + $request->kemampuan_kerja + $request->keterampilan_kerja + $request->kualitas_kerja + $request->berkomunikasi + $request->kerjasama + $request->kerajinan + $request->rasa_pd + $request->mematuhi_aturan + $request->penampilan;
+
         // Membuat instance Penilaian dan mengisinya dengan data yang valid
         $penilaian = new Penilaian([
             'id_siswa' => $id,
@@ -118,6 +121,7 @@ class PenilaianController extends Controller
             'rasa_pd' => $request->rasa_pd,
             'mematuhi_aturan' => $request->mematuhi_aturan,
             'penampilan' => $request->penampilan,
+            'ttl_nilai' =>  $ttl_nilai,
         ]);
 
         // Simpan data ke database

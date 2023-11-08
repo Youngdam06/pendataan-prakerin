@@ -23,7 +23,7 @@ class LoginsController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-        // menggunakan guard admin yang sudah ditambahkan di auth.php
+        // kondisi untuk role guard session
         if(Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
             return redirect('/');
@@ -31,6 +31,7 @@ class LoginsController extends Controller
             $request->session()->regenerate();
             return redirect('/');
         }else{
+            // jika validasi gagal
             return redirect('/signin');
         }
     }

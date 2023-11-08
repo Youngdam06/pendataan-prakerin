@@ -32,7 +32,7 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="ketepatan_waktu" class="form-control"
+                                    <input type="number" name="ketepatan_waktu" class="form-control" max="100"
                                         value="{{ old('ketepatan_waktu') }}">
                                 </div>
                                 <label class="form-label">Sikap Kerja</label>
@@ -40,7 +40,7 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="sikap_kerja" class="form-control"
+                                    <input type="number" name="sikap_kerja" class="form-control" max="100"
                                         value="{{ old('sikap_kerja') }}">
                                 </div>
                                 <label class="form-label">Tanggung Jawab</label>
@@ -48,7 +48,7 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="tanggung_jawab" class="form-control"
+                                    <input type="number" name="tanggung_jawab" class="form-control" max="100"
                                         value="{{ old('tanggung_jawab') }}">
                                 </div>
                                 <label class="form-label">Kehadiran</label>
@@ -56,7 +56,7 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="kehadiran" class="form-control"
+                                    <input type="number" name="kehadiran" class="form-control" max="100"
                                         value="{{ old('kehadiran') }}">
                                 </div>
                                 <label class="form-label">Kemampuan Kerja</label>
@@ -64,7 +64,7 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="kemampuan_kerja" class="form-control"
+                                    <input type="number" name="kemampuan_kerja" class="form-control" max="100"
                                         value="{{ old('kemampuan_kerja') }}">
                                 </div>
                                 <label class="form-label">Keterampilan Kerja</label>
@@ -72,7 +72,7 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="keterampilan_kerja" class="form-control"
+                                    <input type="number" name="keterampilan_kerja" class="form-control" max="100"
                                         value="{{ old('keterampilan_kerja') }}">
                                 </div>
                                 <label class="form-label">Kualitas Kerja</label>
@@ -80,7 +80,7 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="kualitas_kerja" class="form-control"
+                                    <input type="number" name="kualitas_kerja" class="form-control" max="100"
                                         value="{{ old('kualitas_kerja') }}">
                                 </div>
                                 <label class="form-label">Berkomunikasi</label>
@@ -88,7 +88,7 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="berkomunikasi" class="form-control"
+                                    <input type="number" name="berkomunikasi" class="form-control" max="100"
                                         value="{{ old('berkomunikasi') }}">
                                 </div>
                                 <label class="form-label">Kerjasama</label>
@@ -96,7 +96,7 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="kerjasama" class="form-control"
+                                    <input type="number" name="kerjasama" class="form-control" max="100"
                                         value="{{ old('kerjasama') }}">
                                 </div>
                                 <label class="form-label">Kerajinan</label>
@@ -104,7 +104,7 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="kerajinan" class="form-control"
+                                    <input type="number" name="kerajinan" class="form-control" max="100"
                                         value="{{ old('kerajinan') }}">
                                 </div>
                                 <label class="form-label">Rasa Percaya Diri</label>
@@ -112,14 +112,14 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="rasa_pd" class="form-control" value="{{ old('rasa_pd') }}">
+                                    <input type="number" name="rasa_pd" class="form-control" max="100" value="{{ old('rasa_pd') }}">
                                 </div>
                                 <label class="form-label">Mematuhi Aturan</label>
                                 @error('mematuhi_aturan')
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="mematuhi_aturan" class="form-control"
+                                    <input type="number" name="mematuhi_aturan" class="form-control" max="100"
                                         value="{{ old('mematuhi_aturan') }}">
                                 </div>
                                 <label class="form-label">Penampilan</label>
@@ -127,7 +127,7 @@
                                     <div class="alert alert-danger text-white">{{ $message }}</div>
                                 @enderror
                                 <div class="input-group input-group-outline my-3">
-                                    <input type="number" name="penampilan" class="form-control"
+                                    <input type="number" name="penampilan" class="form-control" max="100"
                                         value="{{ old('penampilan') }}">
                                 </div>
 

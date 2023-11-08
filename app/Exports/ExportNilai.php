@@ -32,7 +32,6 @@ class ExportNilai implements FromCollection, WithTitle, ShouldAutoSize, WithHead
     {
         return [
             [
-                'No',
                 'Nama Siswa',
                 'Nama Pembimbing',
                 'Ketepatan Waktu',
@@ -48,6 +47,7 @@ class ExportNilai implements FromCollection, WithTitle, ShouldAutoSize, WithHead
                 'Rasa Percaya Diri',
                 'Mematuhi Aturan',
                 'Penampilan',
+                'Total Nilai',
             ],
         ];
     }

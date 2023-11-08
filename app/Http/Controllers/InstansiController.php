@@ -111,9 +111,9 @@ class InstansiController extends Controller
         return redirect()->route('datainstansi.index');
     }
 
-    public function laporan_data()
-    {
-        $instansi = DB::select("CALL tampilkan_data_innerjoin_instansi()");
-        return view('instansi.laporan', compact('instansi'));
-    }
+    // public function laporan_data()
+    // {
+    //     $instansi = DB::select("CALL tampilkan_data_innerjoin_instansi()");
+    //     return view('instansi.laporan', compact('instansi'));
+    // }
 }

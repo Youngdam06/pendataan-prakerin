@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('penilaian', function (Blueprint $table) {
             //
-            $table->decimal('ttl_nilai', 10, 2)->default(0.00)->after('penampilan');
+            $table->decimal('ttl_nilai', 10, 2)->after('penampilan');
         });
     }
 

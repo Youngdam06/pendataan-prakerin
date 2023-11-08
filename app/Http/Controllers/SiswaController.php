@@ -15,7 +15,9 @@ class SiswaController extends Controller
      */
     public function index()
     {
+        // Mengambil data siswa dari database menggunakan store procedure
         $siswa = DB::select("CALL tampilkan_data_innerjoin_siswa()");
+        // lempar ke form siswa
         return view('siswa.dash', compact('siswa'));
     }
 
@@ -84,7 +86,9 @@ class SiswaController extends Controller
     public function edit(string $id)
     {
         $siswa = Siswa::firstWhere('id', $id);
+        // mengambil isi dari kolom nama_instansi di instansi
         $instansi = Instansi::pluck('nama_instansi', 'id');
+        // mengambil isi dari kolom nama_pembimbing di pembimbing
         $pembimbing = Pembimbing::pluck('nama_pembimbing', 'id');
         return view('siswa/edit', compact('siswa', 'instansi', 'pembimbing'));
     }
@@ -122,6 +126,7 @@ class SiswaController extends Controller
         ]);
 
         $siswa = Siswa::find($id);
+        // mengisi atribut-atribut entitas siswa seperti 'nis', 'nama', 'no_telp', dan sebagainya dengan nilai dari input yang diterima dari $request.
         $siswa->nis = $request->nis;
         $siswa->nama = $request->nama;
         $siswa->no_telp = $request->no_telp;
@@ -131,6 +136,7 @@ class SiswaController extends Controller
         $siswa->email = $request->email;
         $siswa->id_instansi = $request->id_instansi;
         $siswa->id_pembimbing = $request->id_pembimbing;
+        // simpan ke dalam database
         $siswa->save();
         return redirect()->route('datasiswa.index')->with('success2', 'Data pembimbing berhasil diubah!');
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Siswa;
 use App\Models\Prakerin;
 use App\Exports\ExportNilai;
@@ -16,6 +17,7 @@ class PrakerinController extends Controller
      */
     public function index()
     {
+        // Ambil data prakerin dengan call store procedure mysql
         $prakerin = DB::select("CALL tampilkan_data_innerjoin_prakerin()");
         return view('prakerin.dash', compact('prakerin'));
     }
@@ -25,6 +27,7 @@ class PrakerinController extends Controller
      */
     public function create()
     {
+        // Mengambil data siswa dari tabel Instansi untuk dropdown item
         $siswa = Siswa::pluck('nama', 'id');
         return view('prakerin.create', compact('siswa'));
     }
@@ -104,6 +107,7 @@ class PrakerinController extends Controller
 
     public function laporan_data()
     {
+        // menampilkan data prakerin untuk halaman laporan pembimbing
         $prakerin = DB::select("CALL tampilkan_data_innerjoin_prakerinn()");
         return view('prakerin.laporan', compact('prakerin'));
     }
