@@ -14,7 +14,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class PenilaianController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
         // Mengambil data pembimbing yang sedang login
         $pembimbing = Auth::guard('pembimbing')->user();
@@ -25,6 +25,18 @@ class PenilaianController extends Controller
         foreach ($penilaian as $siswa) {
             // Cek apakah siswa sudah dinilai berdasarkan data penilaian dalam database
             $siswa->sudahDinilai = Penilaian::where('id_siswa', $siswa->id_siswa)->exists();
+        }
+        if ($request->has('tanggal_awal') && $request->has('tanggal_akhir')) {
+            $tanggal_awal = $request->input('tanggal_awal');
+            $tanggal_akhir = $request->input('tanggal_akhir');
+
+            if (!empty($tanggal_awal) && !empty($tanggal_akhir)) { 
+                $penilaian = collect($penilaian)->filter(function ($item) use ($tanggal_awal, $tanggal_akhir) {
+                    return $item->tanggal_awal >= $tanggal_awal && $item->tanggal_akhir <= $tanggal_akhir;
+                });
+            } else {
+                return back()->with('status_error', 'Tanggal awal dan akhir harus diisi');
+            }
         }
 
         return view('pembimbing.penilaian', compact('penilaian'));
@@ -92,13 +104,7 @@ class PenilaianController extends Controller
             'mematuhi_aturan.required' => 'field wajib diisi.',
             'penampilan.required' => 'field wajib diisi.',
         ]);
-        
-        $existingPenilaian = Penilaian::where('id_siswa', $id)->first();
-
-        if ($existingPenilaian) {
-            return redirect()->back()->with('error-siswa', 'Data untuk siswa ini sudah ada.');
-        }
-
+        // mengambil id pembimbing yang sedang login
         $id_pembimbing = Auth::guard('pembimbing')->user()->id;
 
         // Menghitung nilai total (ttl_nilai)

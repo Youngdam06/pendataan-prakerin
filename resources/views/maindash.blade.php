@@ -113,8 +113,8 @@
                             @foreach ($prakerin1 as $data)
                                 <tr>
                                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                                    <td class="align-middle text-center text-sm">{{ $data->tanggal_awal }}</td>
-                                    <td class="align-middle text-center text-sm">{{ $data->tanggal_akhir }}</td>
+                                    <td class="align-middle text-center text-sm">{{ date('d M Y', strtotime($data->tanggal_awal)) }}</td>
+                                    <td class="align-middle text-center text-sm">{{ date('d M Y', strtotime($data->tanggal_akhir)) }}</td>
                                     <td class="align-middle text-center text-sm">{{ $data->nis }}</td>
                                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama }}</td>
                                     <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>

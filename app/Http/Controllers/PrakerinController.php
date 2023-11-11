@@ -9,16 +9,29 @@ use App\Exports\ExportNilai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Session;
 
 class PrakerinController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         // Ambil data prakerin dengan call store procedure mysql
         $prakerin = DB::select("CALL tampilkan_data_innerjoin_prakerin()");
+        if ($request->has('tanggal_awal') && $request->has('tanggal_akhir')) {
+            $tanggal_awal = $request->input('tanggal_awal');
+            $tanggal_akhir = $request->input('tanggal_akhir');
+
+            if (!empty($tanggal_awal) && !empty($tanggal_akhir)) { 
+                $prakerin = collect($prakerin)->filter(function ($item) use ($tanggal_awal, $tanggal_akhir) {
+                    return $item->tanggal_awal >= $tanggal_awal && $item->tanggal_akhir <= $tanggal_akhir;
+                });
+            } else {
+                return back()->with('status_error', 'Tanggal awal dan akhir harus diisi');
+            }
+        }
         return view('prakerin.dash', compact('prakerin'));
     }
 
@@ -105,10 +118,22 @@ class PrakerinController extends Controller
         return redirect()->route('dataprakerin.index');
     }
 
-    public function laporan_data()
+    public function laporan_data(Request $request)
     {
-        // menampilkan data prakerin untuk halaman laporan pembimbing
         $prakerin = DB::select("CALL tampilkan_data_innerjoin_prakerinn()");
+        
+        if ($request->has('tanggal_awal') && $request->has('tanggal_akhir')) {
+            $tanggal_awal = $request->input('tanggal_awal');
+            $tanggal_akhir = $request->input('tanggal_akhir');
+
+            if (!empty($tanggal_awal) && !empty($tanggal_akhir)) { 
+                $prakerin = collect($prakerin)->filter(function ($item) use ($tanggal_awal, $tanggal_akhir) {
+                    return $item->tanggal_awal >= $tanggal_awal && $item->tanggal_akhir <= $tanggal_akhir;
+                });
+            } else {
+                return back()->with('status_error', 'Tanggal awal dan akhir harus diisi');
+            }
+        }
         return view('prakerin.laporan', compact('prakerin'));
     }
 }

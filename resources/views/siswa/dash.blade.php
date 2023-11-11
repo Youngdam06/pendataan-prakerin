@@ -22,6 +22,7 @@
                     <th class="align-middle text-center text-sm">Nama Siswa</th>
                     <th class="align-middle text-center text-sm">Email Siswa</th>
                     <th class="align-middle text-center text-sm">Kelas</th>
+                    <th class="align-middle text-center text-sm">Jurusan</th>
                     <th class="align-middle text-center text-sm" width="200px">Action</th>
                 </tr>
                 </thead>
@@ -33,6 +34,7 @@
                     <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->email }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
+                    <td class="align-middle text-center text-sm">{{ $data->jurusan }}</td>
                     <td>
                         <form action="{{ route('datasiswa.destroy',$data->id) }}" method="POST">
                             <div class="align-middle text-center text-sm">

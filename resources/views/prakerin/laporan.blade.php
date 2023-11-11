@@ -14,6 +14,25 @@
           </div>
         </div>
         <div class="card-body px-3 pb-2">
+          <div class="container">
+              <form method="GET" action="{{ route('laporanprakerin') }}">
+                  <div class="row mt-2">
+                      <div class="col-md-4 form-group">
+                          <label for="tanggal_awal">Tanggal Awal</label>
+                          <input type="date" class="form-control" name="tanggal_awal" id="tanggal_awal">
+                      </div>
+                      <div class="col-md-4 form-group">
+                          <label for="tanggal_akhir">Tanggal Akhir</label>
+                          <input type="date" class="form-control" name="tanggal_akhir" id="tanggal_akhir">
+                      </div>
+                      <div class="col-md-4 form-group">
+                          <button type="submit" class="btn btn-info">Filter</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+        </div>      
+        <div class="card-body px-3 pb-2">
           <div class="table-responsive p-0">
             <table id="laporan-prakerin" class="table table-bordered">
                 <thead>
@@ -33,8 +52,8 @@
                 @foreach ($prakerin as $data)
                 <tr>
                     <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->tanggal_awal }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->tanggal_akhir }}</td>
+                    <td class="align-middle text-center text-sm">{{ date('d M Y', strtotime($data->tanggal_awal)) }}</td>
+                    <td class="align-middle text-center text-sm">{{  date('d M Y', strtotime($data->tanggal_akhir)) }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->nis }}</td>
                     <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama }}</td>
                     <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
@@ -74,4 +93,5 @@
         });
     });
 </script>
+
 @endsection

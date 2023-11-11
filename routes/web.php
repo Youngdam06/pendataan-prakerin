@@ -45,7 +45,6 @@ Route::middleware(['auth:admin,pembimbing'])->group(function () {
     route::get('laporan-data-pembimbing', [PembimbingController::class, 'laporan_data'])->name('laporanpembimbing');
     route::get('laporan-data-instansi', [InstansiController::class, 'laporan_data'])->name('laporaninstansi');
     route::get('laporan-data-prakerin', [PrakerinController::class, 'laporan_data'])->name('laporanprakerin');
-
     // Kelola penilaian siswa pembimbing
     route::get('nilai', [PenilaianController::class, 'index'])->name('indexNilai');
     route::get('create-nilai/{id}', [PenilaianController::class, 'create'])->name('createNilai');
