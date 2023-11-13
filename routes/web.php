@@ -23,7 +23,7 @@ use App\Http\Controllers\MaindashboardController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// route sesi register, login dan logout admin
+// route sesi register, login dan logout
 Route::get('/signin', [LoginsController::class, 'index'])->name('signin');
 Route::get('/signup', [LoginsController::class, 'indexReg']);
 Route::post('/post', [LoginsController::class, 'postLogin'])->name("postLog");

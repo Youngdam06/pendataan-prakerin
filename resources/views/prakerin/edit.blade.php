@@ -24,11 +24,17 @@
                                 @csrf
                                 @method('PUT')
                                 <label class="form-label">Tanggal Awal</label>
+                                @error('tanggal_awal')
+                                    <div class="alert alert-danger text-white">{{ $message }}</div>
+                                @enderror
                                 <div class="input-group input-group-outline my-3">
                                     <input type="date" name="tanggal_awal" value="{{ $prakerin->tanggal_awal }}"
                                         class="form-control" min="{{ date('Y-m-d') }}">
                                 </div>
                                 <label class="form-label">Nomor Telepon</label>
+                                @error('tanggal_akhir')
+                                    <div class="alert alert-danger text-white">{{ $message }}</div>
+                                @enderror
                                 <div class="input-group input-group-outline my-3">
                                     <input type="date" name="tanggal_akhir"
                                         value="{{ $prakerin->tanggal_akhir }}"class="form-control"

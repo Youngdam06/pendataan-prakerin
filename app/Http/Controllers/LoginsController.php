@@ -47,12 +47,13 @@ class LoginsController extends Controller
         // Validasi data yang dikirimkan oleh pengguna
         $validatedData = $request->validate([
             'nama' => 'required',
-            'no_telp' => 'required',
+            'no_telp' => 'required|max:20',
             'email' => 'required|email|unique:admin,email', // Menambahkan validasi unik untuk bidang email
             'password' => 'required',
         ], [
             'nama.required' => 'Nama wajib diisi.',
             'no_telp.required' => 'Nomor telepon wajib diisi.',
+            'no_telp.max' => 'nomor telepon tidak boleh lebih panjang dari 20 angka.',
             'email.required' => 'Alamat email wajib diisi.',
             'email.email' => 'Alamat email tidak valid.',
             'email.unique' => 'Alamat email sudah digunakan.', // Pesan kustom jika email sudah ada dalam database

@@ -22,10 +22,16 @@
             <form role="form" action="{{ route('dataprakerin.store') }}" class="text-start" method="POST">
                 @csrf
                 <label class="form-label">Tanggal Awal</label>
+                @error('tanggal_awal')
+                <div class="alert alert-danger text-white">{{ $message }}</div>
+                @enderror
                 <div class="input-group input-group-outline my-3">
                 <input type="date" name="tanggal_awal" class="form-control"  min="{{ date('Y-m-d') }}" value="{{ old('tanggal_awal') }}">
                 </div>
                 <label class="form-label">Tanggal Akhir</label>
+                @error('tanggal_akhir')
+                <div class="alert alert-danger text-white">{{ $message }}</div>
+                @enderror
                 <div class="input-group input-group-outline my-3">
                 <input type="date" name="tanggal_akhir" class="form-control"  min="{{ date('Y-m-d') }}" value="{{ old('tanggal_akhir') }}">
                 </div>
@@ -36,6 +42,7 @@
                 <div class="input-group input-group-outline my-3">
                     <select name="id_siswa" class="form-select form-select-outline my-3" value="{{ old('id_siswa') }}">
                         <option value="">Pilih Siswa</option>
+                        {{-- foreach yang digunakan untuk mengambil nilai siswa dari array $siswa. Variabel $key digunakan sebagai nilai opsi, dan $value digunakan sebagai teks yang ditampilkan dalam opsi dropdown. --}}
                         @foreach($siswa as $key => $value)
                             <option value="{{ $key }}">{{ $value }}</option>
                         @endforeach

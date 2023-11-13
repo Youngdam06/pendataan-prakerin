@@ -37,12 +37,11 @@ class InstansiController extends Controller
         //validasi request input yang akan disimpan
         $request->validate([
         'nama_instansi' => 'required',
-        'no_telp' => 'required|min:10|max:20',
+        'no_telp' => 'required|max:20',
         'email' => 'required|email|unique:instansi,email',
     ], [
         'nama_instansi.required' => 'Nama Instansi wajib diisi.',
         'no_telp.required' => 'Nomor Telepon wajib diisi.',
-        'no_telp.min' => 'nomor telepon tidak boleh lebih pendek dari 10 angka.',
         'no_telp.max' => 'nomor telepon tidak boleh lebih panjang dari 20 angka.',
         'email.required' => 'Alamat Email wajib diisi.',
         'email.email' => 'Alamat Email tidak valid.',
@@ -79,12 +78,11 @@ class InstansiController extends Controller
         //validasi request input yang akan disimpan
         $request->validate([
             'nama_instansi' => 'required',
-            'no_telp' => 'required|min:10|max:20',
+            'no_telp' => 'required|max:20',
             'email' => 'required|email|unique:instansi,email,' . $id, // Menghindari validasi unik untuk dirinya sendiri
         ], [
             'nama_instansi.required' => 'Nama Instansi wajib diisi.',
             'no_telp.required' => 'Nomor Telepon wajib diisi.',
-            'no_telp.min' => 'nomor telepon tidak boleh lebih pendek dari 10 angka.',
             'no_telp.max' => 'nomor telepon tidak boleh lebih panjang dari 20 angka.',
             'email.required' => 'Alamat Email wajib diisi.',
             'email.email' => 'Alamat Email tidak valid.',

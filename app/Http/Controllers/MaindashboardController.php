@@ -13,9 +13,13 @@ class MaindashboardController extends Controller
 {
     public function index() 
     {
+        // menghitung data instansi
         $instansi = Instansi::count();
+        // menghitung data siswa
         $siswa = Siswa::count();
+        // menghitung data pembimbing
         $pembimbing = Pembimbing::count();
+        // menghitung data siswa yang prakerin
         $prakerin = Prakerin::count();
         $prakerin1 = DB::select("CALL tampilkan_data_innerjoin_prakerinn()");
         return view('maindash', compact('instansi', 'siswa', 'pembimbing', 'prakerin', 'prakerin1'));

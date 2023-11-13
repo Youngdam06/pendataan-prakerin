@@ -13,25 +13,32 @@
             <h6 class="text-white text-capitalize ps-3">laporan Data Prakerin</h6>
           </div>
         </div>
-        <div class="card-body px-3 pb-2">
-          <div class="container">
-              <form method="GET" action="{{ route('laporanprakerin') }}">
-                  <div class="row mt-2">
-                      <div class="col-md-4 form-group">
-                          <label for="tanggal_awal">Tanggal Awal</label>
-                          <input type="date" class="form-control" name="tanggal_awal" id="tanggal_awal">
-                      </div>
-                      <div class="col-md-4 form-group">
-                          <label for="tanggal_akhir">Tanggal Akhir</label>
-                          <input type="date" class="form-control" name="tanggal_akhir" id="tanggal_akhir">
-                      </div>
-                      <div class="col-md-4 form-group">
-                          <button type="submit" class="btn btn-info">Filter</button>
-                      </div>
-                  </div>
-              </form>
+        <div class="container mt-4">
+          <div class="row justify-content-center">
+            <div class="col-md-11">
+              <div class="card">
+                <div class="card-header"><h6>Filter Tanggal </h6></div>
+                <div class="card-body">
+                  <form method="GET" action="{{ route('laporanprakerin') }}">
+                    <div class="row mt-1">
+                        <div class="col-md-4 form-group">
+                            <label for="tanggal_awal">Tanggal Awal</label>
+                            <input type="date" class="form-control" name="tanggal_awal" id="tanggal_awal">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="tanggal_akhir">Tanggal Akhir</label>
+                            <input type="date" class="form-control" name="tanggal_akhir" id="tanggal_akhir">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <button type="submit" class="btn btn-info">Filter</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>      
+        </div> 
         <div class="card-body px-3 pb-2">
           <div class="table-responsive p-0">
             <table id="laporan-prakerin" class="table table-bordered">
@@ -92,6 +99,16 @@
           ]
         });
     });
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+@if (session()->has('status_error'))
+Swal.fire({
+    icon: 'warning',
+    title: 'Gagal!',
+    text: '{{ session()->get('status_error') }}'
+});
+@endif
 </script>
 
 @endsection

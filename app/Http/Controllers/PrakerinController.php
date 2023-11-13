@@ -20,10 +20,11 @@ class PrakerinController extends Controller
     {
         // Ambil data prakerin dengan call store procedure mysql
         $prakerin = DB::select("CALL tampilkan_data_innerjoin_prakerin()");
+        //  jika permintaan (request) memiliki parameter 'tanggal_awal' dan 'tanggal_akhir', maka kode akan mengambil nilai dari kedua parameter tersebut.
         if ($request->has('tanggal_awal') && $request->has('tanggal_akhir')) {
             $tanggal_awal = $request->input('tanggal_awal');
             $tanggal_akhir = $request->input('tanggal_akhir');
-
+            //  jika kedua tanggal tersebut tidak kosong, maka data prakerin akan difilter berdasarkan rentang tanggal tersebut menggunakan fungsi filter
             if (!empty($tanggal_awal) && !empty($tanggal_akhir)) { 
                 $prakerin = collect($prakerin)->filter(function ($item) use ($tanggal_awal, $tanggal_akhir) {
                     return $item->tanggal_awal >= $tanggal_awal && $item->tanggal_akhir <= $tanggal_akhir;
@@ -121,11 +122,11 @@ class PrakerinController extends Controller
     public function laporan_data(Request $request)
     {
         $prakerin = DB::select("CALL tampilkan_data_innerjoin_prakerinn()");
-        
+        //  jika permintaan (request) memiliki parameter 'tanggal_awal' dan 'tanggal_akhir', maka kode akan mengambil nilai dari kedua parameter tersebut.
         if ($request->has('tanggal_awal') && $request->has('tanggal_akhir')) {
             $tanggal_awal = $request->input('tanggal_awal');
             $tanggal_akhir = $request->input('tanggal_akhir');
-
+            //  jika kedua tanggal tersebut tidak kosong, maka data prakerin akan difilter berdasarkan rentang tanggal tersebut menggunakan fungsi filter
             if (!empty($tanggal_awal) && !empty($tanggal_akhir)) { 
                 $prakerin = collect($prakerin)->filter(function ($item) use ($tanggal_awal, $tanggal_akhir) {
                     return $item->tanggal_awal >= $tanggal_awal && $item->tanggal_akhir <= $tanggal_akhir;

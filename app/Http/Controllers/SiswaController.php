@@ -42,7 +42,7 @@ class SiswaController extends Controller
         $request->validate([
             'nis' => 'required|numeric|unique:siswa,nis',
             'nama' => 'required',
-            'no_telp' =>'required|min:10|max:20',
+            'no_telp' =>'required|numeric|min:20',
             'kelas' =>'required',
             'jurusan' =>'required',
             'angkatan' =>'required',
@@ -54,8 +54,7 @@ class SiswaController extends Controller
             'nis.unique' => 'NIS sudah ada.',
             'nama.required' => 'Nama siswa wajib diisi.',
             'no_telp.required' => 'nomor telepon wajib diisi.',
-            'no_telp.max' => 'nomor telepon tidak boleh lebih panjang dari 20 angka.',
-            'no_telp.min' => 'nomor telepon tidak boleh lebih pendek dari 10 angka.',
+            'no_telp.min' => 'nomor telepon tidak boleh lebih panjang dari 20 angka.',
             'kelas.required' => 'kelas wajib diisi.',
             'jurusan.required' => 'jurusan wajib diisi.',
             'angkatan.required' => 'angkatan wajib diisi.',
@@ -101,7 +100,7 @@ class SiswaController extends Controller
         $request->validate([
             'nis' => 'required|numeric|unique:siswa,nis,' . $id, // Menghindari validasi unik untuk dirinya sendiri
             'nama' => 'required',
-            'no_telp' =>'required|min:10|max:20',
+            'no_telp' =>'required|max:20',
             'kelas' =>'required',
             'jurusan' =>'required',
             'angkatan' =>'required',
@@ -114,7 +113,6 @@ class SiswaController extends Controller
             'nama.required' => 'Nama pembimbing wajib diisi.',
             'no_telp.required' => 'nomor telepon wajib diisi.',
             'no_telp.max' => 'nomor telepon tidak boleh lebih panjang dari 20 angka.',
-            'no_telp.min' => 'nomor telepon tidak boleh lebih pendek dari 10 angka.',
             'kelas.required' => 'kelas wajib diisi.',
             'jurusan.required' => 'jurusan wajib diisi.',
             'angkatan.required' => 'angkatan wajib diisi.',
