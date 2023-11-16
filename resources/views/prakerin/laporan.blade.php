@@ -22,11 +22,11 @@
                   <form method="GET" action="{{ route('laporanprakerin') }}">
                     <div class="row mt-1">
                         <div class="col-md-4 form-group">
-                            <label for="tanggal_awal">Tanggal Awal</label>
+                            <label for="tanggal_awal" class="text-dark">Tanggal Awal</label>
                             <input type="date" class="form-control" name="tanggal_awal" id="tanggal_awal">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label for="tanggal_akhir">Tanggal Akhir</label>
+                            <label for="tanggal_akhir" class="text-dark">Tanggal Akhir</label>
                             <input type="date" class="form-control" name="tanggal_akhir" id="tanggal_akhir">
                         </div>
                         <div class="col-md-4 form-group">
@@ -40,33 +40,33 @@
           </div>
         </div> 
         <div class="card-body px-3 pb-2">
-          <div class="table-responsive p-0">
+          <div class="table-responsive p-0 text-dark  ">
             <table id="laporan-prakerin" class="table table-bordered">
                 <thead>
                 <tr>
-                    <th class="align-middle text-center text-sm">No</th>
-                    <th class="align-middle text-center text-sm">Tanggal Awal</th>
-                    <th class="align-middle text-center text-sm">Tanggal Akhir</th>
-                    <th class="align-middle text-center text-sm">NIS Siswa</th>
-                    <th class="align-middle text-center text-sm">Nama Siswa</th>
-                    <th class="align-middle text-center text-sm">Kelas</th>
-                    <th class="align-middle text-center text-sm">Jurusan</th>
-                    <th class="align-middle text-center text-sm">Nama Instansi</th>
-                    <th class="align-middle text-center text-sm">Nama Pembimbing</th>
+                    <th class="align-middle text-center text-sm text-dark">No</th>
+                    <th class="align-middle text-center text-sm text-dark">Tanggal Awal</th>
+                    <th class="align-middle text-center text-sm text-dark">Tanggal Akhir</th>
+                    <th class="align-middle text-center text-sm text-dark">NIS Siswa</th>
+                    <th class="align-middle text-center text-sm text-dark">Nama Siswa</th>
+                    <th class="align-middle text-center text-sm text-dark">Kelas</th>
+                    <th class="align-middle text-center text-sm text-dark">Jurusan</th>
+                    <th class="align-middle text-center text-sm text-dark">Nama Instansi</th>
+                    <th class="align-middle text-center text-sm text-dark">Nama Pembimbing</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($prakerin as $data)
                 <tr>
-                    <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                    <td class="align-middle text-center text-sm">{{ date('d M Y', strtotime($data->tanggal_awal)) }}</td>
-                    <td class="align-middle text-center text-sm">{{  date('d M Y', strtotime($data->tanggal_akhir)) }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->nis }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_instansi }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_pembimbing }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $loop->iteration }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ date('d M Y', strtotime($data->tanggal_awal)) }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{  date('d M Y', strtotime($data->tanggal_akhir)) }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $data->nis }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $data->kelas }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama_instansi }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama_pembimbing }}</td>
                 </tr>
                 @endforeach
                 </tbody>

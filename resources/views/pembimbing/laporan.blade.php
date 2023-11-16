@@ -16,29 +16,29 @@
         <div class="alert">
         </div>
         <div class="card-body px-1 pb-5">
-          <div class="table-responsive p-0">
+          <div class="table-responsive p-0 text-dark">
             <table id="laporan-pembimbing" class="table table-bordered">
                 <thead>
                 <tr>
-                    <th class="align-middle text-center text-sm">No</th>
-                    <th class="align-middle text-center text-sm">NIK</th>
-                    <th class="align-middle text-center text-sm">Nama Pembimbing</th>
-                    <th class="align-middle text-center text-sm">NIS Siswa</th>
-                    <th class="align-middle text-center text-sm">Nama Siswa</th>
-                    <th class="align-middle text-center text-sm">Jurusan Siswa</th>
-                    <th class="align-middle text-center text-sm">Nama Instansi</th>
+                    <th class="align-middle text-center text-sm text-dark">No</th>
+                    <th class="align-middle text-center text-sm text-dark">NIK</th>
+                    <th class="align-middle text-center text-sm text-dark">Nama Pembimbing</th>
+                    <th class="align-middle text-center text-sm text-dark">NIS Siswa</th>
+                    <th class="align-middle text-center text-sm text-dark">Nama Siswa</th>
+                    <th class="align-middle text-center text-sm text-dark">Jurusan Siswa</th>
+                    <th class="align-middle text-center text-sm text-dark">Nama Instansi</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($pembimbing as $data)
                 <tr>
-                    <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nik }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_pembimbing }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->nis }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_instansi }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $loop->iteration }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nik }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama_pembimbing }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $data->nis }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama_instansi }}</td>
                 </tr>
                 @endforeach
                 </tbody>

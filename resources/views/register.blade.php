@@ -27,6 +27,9 @@
                             placeholder="Masukkan nama" />
                         </div>
                         <label class="form-label" for="email">Nomor Telepon</label>
+                        @error('no_telp')
+                            <div class="alert alert-danger text-black">{{ $message }}</div>
+                        @enderror
                         <div class="form-outline mb-4">
                             <input type="number" class="form-control form-control-lg" name="no_telp" id="notelp"
                             placeholder="Masukkan nomor telepon">

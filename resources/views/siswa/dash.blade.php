@@ -13,32 +13,32 @@
           </div>
         </div>
         <div class="card-body px-5 pb-0">
-          <div class="table-responsive p-3">
+          <div class="table-responsive p-3 text-dark">
             <table id="table-siswa" class="table table-bordered">
                 <thead>
                 <tr>
-                    <th class="align-middle text-center text-sm">No</th>
-                    <th class="align-middle text-center text-sm">NIS</th>
-                    <th class="align-middle text-center text-sm">Nama Siswa</th>
-                    <th class="align-middle text-center text-sm">Email Siswa</th>
-                    <th class="align-middle text-center text-sm">Kelas</th>
-                    <th class="align-middle text-center text-sm">Jurusan</th>
-                    <th class="align-middle text-center text-sm" width="200px">Action</th>
+                    <th class="align-middle text-center text-sm text-dark">No</th>
+                    <th class="align-middle text-center text-sm text-dark">NIS</th>
+                    <th class="align-middle text-center text-sm text-dark">Nama Siswa</th>
+                    <th class="align-middle text-center text-sm text-dark">Email Siswa</th>
+                    <th class="align-middle text-center text-sm text-dark">Kelas</th>
+                    <th class="align-middle text-center text-sm text-dark">Jurusan</th>
+                    <th class="align-middle text-center text-sm text-dark" width="200px">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($siswa as $data)
                 <tr>
-                    <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nis }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->nama }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->email }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->jurusan }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $loop->iteration }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nis }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $data->email }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $data->kelas }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
                     <td>
                         <form action="{{ route('datasiswa.destroy',$data->id) }}" method="POST">
                             <div class="align-middle text-center text-sm">
-                                <a class="btn btn-info" href="{{ route('datasiswa.edit',$data->id) }}">Edit</a>
+                                <a class="btn btn-warning" href="{{ route('datasiswa.edit',$data->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" id="btnDelete">Delete</button>

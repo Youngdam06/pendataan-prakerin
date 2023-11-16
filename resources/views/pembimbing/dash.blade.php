@@ -14,30 +14,30 @@
         </div>
         </div>
         <div class="card-body px-3 pb-2">
-          <div class="table-responsive p-0">
+          <div class="table-responsive p-0 text-dark">
             <table id="table-pembimbing" class="table table-bordered">
                 <thead>
                 <tr>
-                    <th class="align-middle text-center text-sm">No</th>
-                    <th class="align-middle text-center text-sm">NIK</th>
-                    <th class="align-middle text-center text-sm">Nama Pembimbing</th>
-                    <th class="align-middle text-center text-sm">Nomor Telepon</th>
-                    <th class="align-middle text-center text-sm">Email</th>
-                    <th class="align-middle text-center text-sm" width="350px">Action</th>
+                    <th class="align-middle text-center text-sm text-dark">No</th>
+                    <th class="align-middle text-center text-sm text-dark">NIK</th>
+                    <th class="align-middle text-center text-sm text-dark">Nama Pembimbing</th>
+                    <th class="align-middle text-center text-sm text-dark">Nomor Telepon</th>
+                    <th class="align-middle text-center text-sm text-dark">Email</th>
+                    <th class="align-middle text-center text-sm text-dark" width="350px">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($pembimbing as $data)
                 <tr>
-                    <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nik }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->nama_pembimbing }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->no_telp }}</td>
-                    <td class="align-middle text-center text-sm">{{ $data->email }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $loop->iteration }}</td>
+                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nik }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $data->nama_pembimbing }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $data->no_telp }}</td>
+                    <td class="align-middle text-center text-sm text-dark">{{ $data->email }}</td>
                     <td>
                         <form action="{{ route('datapembimbing.destroy',$data->id) }}" method="POST">
                             <div class="align-middle text-center text-sm">
-                                <a class="btn btn-info" href="{{ route('datapembimbing.edit',$data->id) }}">Edit</a>
+                                <a class="btn btn-warning" href="{{ route('datapembimbing.edit',$data->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" id="btnDelete">Delete</button>

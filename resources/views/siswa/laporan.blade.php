@@ -14,29 +14,29 @@
                 </div>
             </div>
             <div class="card-body px-1 pb-0">
-                <div class="table-responsive p-3">
+                <div class="table-responsive p-3 text-dark">
                     <table id="laporan-siswa" class="table table-bordered mt-0">
                         <thead>
                             <tr>
-                                <th class="align-middle text-center text-sm">No</th>
-                                <th class="align-middle text-center text-sm">NIS</th>
-                                <th class="align-middle text-center text-sm">Nama Siswa</th>
-                                <th class="align-middle text-center text-sm">Kelas</th>
-                                <th class="align-middle text-center text-sm">Jurusan</th>
-                                <th class="align-middle text-center text-sm">Nama Pembimbing</th>
-                                <th class="align-middle text-center text-sm">Nama Instansi</th>
+                                <th class="align-middle text-center text-sm text-dark">No</th>
+                                <th class="align-middle text-center text-sm text-dark">NIS</th>
+                                <th class="align-middle text-center text-sm text-dark">Nama Siswa</th>
+                                <th class="align-middle text-center text-sm text-dark">Kelas</th>
+                                <th class="align-middle text-center text-sm text-dark">Jurusan</th>
+                                <th class="align-middle text-center text-sm text-dark">Nama Pembimbing</th>
+                                <th class="align-middle text-center text-sm text-dark">Nama Instansi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($siswa as $data)
                                 <tr>
-                                    <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                                    <td class="align-middle text-center text-sm">{{ $data->nis }}</td>
-                                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama }}</td>
-                                    <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
-                                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
-                                    <td class="align-middle text-center text-sm">{{ $data->nama_pembimbing }}</td>
-                                    <td class="align-middle text-center text-sm">{{ $data->nama_instansi }}</td>
+                                    <td class="align-middle text-center text-sm text-dark">{{ $loop->iteration }}</td>
+                                    <td class="align-middle text-center text-sm text-dark">{{ $data->nis }}</td>
+                                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama }}</td>
+                                    <td class="align-middle text-center text-sm text-dark">{{ $data->kelas }}</td>
+                                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
+                                    <td class="align-middle text-center text-sm text-dark">{{ $data->nama_pembimbing }}</td>
+                                    <td class="align-middle text-center text-sm text-dark">{{ $data->nama_instansi }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -14,23 +14,28 @@ class ImportNilai implements ToModel
     */
     public function model(array $row)
     {
-        return new Penilaian([
-            'id_siswa' => $row[1],
-            'id_pembimbing' => $row[2],
-            'ketepatan_waktu' => $row[3],
-            'sikap_kerja' => $row[4],
-            'tanggung_jawab' => $row[5],
-            'kehadiran' => $row[6],
-            'kemampuan_kerja' => $row[7],
-            'keterampilan_kerja' => $row[8],
-            'kualitas_kerja' => $row[9],
-            'berkomunikasi' => $row[10],
-            'kerjasama' => $row[11],
-            'kerajinan' => $row[12],
-            'rasa_pd' => $row[13],
-            'mematuhi_aturan' => $row[14],
-            'penampilan' => $row[15],
-            'ttl_nilai' => $row[16],
-        ]);
+            if (count($row) >=16) {
+                return new Penilaian([
+                'id_siswa' => $row[0],
+                'id_pembimbing' => $row[1],
+                'ketepatan_waktu' => $row[2],
+                'sikap_kerja' => $row[3],
+                'tanggung_jawab' => $row[4],
+                'kehadiran' => $row[5],
+                'kemampuan_kerja' => $row[6],
+                'keterampilan_kerja' => $row[7],
+                'kualitas_kerja' => $row[8],
+                'berkomunikasi' => $row[9],
+                'kerjasama' => $row[10],
+                'kerajinan' => $row[11],
+                'rasa_pd' => $row[12],
+                'mematuhi_aturan' => $row[13],
+                'penampilan' => $row[14],
+                'ttl_nilai' => $row[15],
+            ]);
+    } else {
+        return null;
     }
+}
+
 }

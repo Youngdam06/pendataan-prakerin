@@ -14,51 +14,51 @@
                     </div>
                 </div>
                 <div class="card-body px-1 pb-0">
-                    <div class="table-responsive p-3">
+                    <div class="table-responsive p-3 text-dark">
                         <table id="laporan-siswa" class="table table-bordered mt-0">
                             <thead>
                                 <tr>
-                                    <th class="align-middle text-center text-sm">No</th>
-                                    <th class="align-middle text-center text-sm">Nama Siswa</th>
-                                    <th class="align-middle text-center text-sm">Nama Pembimbing</th>
-                                    <th class="align-middle text-center text-sm">Ketepatan Waktu</th>
-                                    <th class="align-middle text-center text-sm">Sikap Kerja</th>
-                                    <th class="align-middle text-center text-sm">Tanggung Jawab</th>
-                                    <th class="align-middle text-center text-sm">Kehadiran</th>
-                                    <th class="align-middle text-center text-sm">Kemampuan Kerja</th>
-                                    <th class="align-middle text-center text-sm">Keterampilan Kerja</th>
-                                    <th class="align-middle text-center text-sm">Kualitas Kerja</th>
-                                    <th class="align-middle text-center text-sm">Berkomunikasi</th>
-                                    <th class="align-middle text-center text-sm">Kerjasama</th>
-                                    <th class="align-middle text-center text-sm">Kerajinan</th>
-                                    <th class="align-middle text-center text-sm">Rasa Percaya Diri</th>
-                                    <th class="align-middle text-center text-sm">Mematuhi Aturan</th>
-                                    <th class="align-middle text-center text-sm">Penampilan</th>
-                                    <th class="align-middle text-center text-sm">Total Nilai</th>
-                                    <th class="align-middle text-center text-sm">Aksi</th>
+                                    <th class="align-middle text-center text-sm text-dark">No</th>
+                                    <th class="align-middle text-center text-sm text-dark">Nama Siswa</th>
+                                    <th class="align-middle text-center text-sm text-dark">Nama Pembimbing</th>
+                                    <th class="align-middle text-center text-sm text-dark">Ketepatan Waktu</th>
+                                    <th class="align-middle text-center text-sm text-dark">Sikap Kerja</th>
+                                    <th class="align-middle text-center text-sm text-dark">Tanggung Jawab</th>
+                                    <th class="align-middle text-center text-sm text-dark">Kehadiran</th>
+                                    <th class="align-middle text-center text-sm text-dark">Kemampuan Kerja</th>
+                                    <th class="align-middle text-center text-sm text-dark">Keterampilan Kerja</th>
+                                    <th class="align-middle text-center text-sm text-dark">Kualitas Kerja</th>
+                                    <th class="align-middle text-center text-sm text-dark">Berkomunikasi</th>
+                                    <th class="align-middle text-center text-sm text-dark">Kerjasama</th>
+                                    <th class="align-middle text-center text-sm text-dark">Kerajinan</th>
+                                    <th class="align-middle text-center text-sm text-dark">Rasa Percaya Diri</th>
+                                    <th class="align-middle text-center text-sm text-dark">Mematuhi Aturan</th>
+                                    <th class="align-middle text-center text-sm text-dark">Penampilan</th>
+                                    <th class="align-middle text-center text-sm text-dark">Total Nilai</th>
+                                    <th class="align-middle text-center text-sm text-dark">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($nilai as $data)
                                     <tr>
-                                        <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                                        <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_siswa }}</td>
-                                        <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_pembimbing }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->ketepatan_waktu }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->sikap_kerja }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->tanggung_jawab }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->kehadiran }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->kemampuan_kerja }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->keterampilan_kerja }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->kualitas_kerja }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->berkomunikasi }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->kerjasama }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->kerajinan }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->rasa_pd }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->mematuhi_aturan }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->penampilan }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $data->ttl_nilai }}</td>
-                                        <td class="align-middle text-center text-sm">
+                                        <td class="align-middle text-center text-sm text-dark">{{ $loop->iteration }}</td>
+                                        <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama_siswa }}</td>
+                                        <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama_pembimbing }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->ketepatan_waktu }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->sikap_kerja }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->tanggung_jawab }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->kehadiran }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->kemampuan_kerja }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->keterampilan_kerja }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->kualitas_kerja }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->berkomunikasi }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->kerjasama }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->kerajinan }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->rasa_pd }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->mematuhi_aturan }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->penampilan }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">{{ $data->ttl_nilai }}</td>
+                                        <td class="align-middle text-center text-sm text-dark">
                                             <a href="{{ route('exportNilai', ['id' => $data->id_siswa]) }}" class="btn btn-success btn-sm">Export</a>
                                         </td>
                                         

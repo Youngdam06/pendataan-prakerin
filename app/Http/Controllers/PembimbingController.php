@@ -48,6 +48,7 @@ class PembimbingController extends Controller
             'email.required' => 'Email wajib diisi.',
             'email.email' => 'Alamat email tidak valid.',
             'email.unique' => 'Alamat email sudah ada.',
+            'password.required' => 'Password harus diisi.'
         ]);
         // hash password
         $request['password'] = Hash::make($request['password']);
@@ -83,7 +84,7 @@ class PembimbingController extends Controller
         $request->validate([
             'nik' => 'required|numeric|unique:pembimbing,nik,' . $id, // Menghindari validasi unik untuk dirinya sendiri
             'nama_pembimbing' => 'required',
-            'no_telp' =>'required|max:20',
+            'no_telp' => 'required|max:20',
             'email' => 'required|email|unique:pembimbing,email,' . $id // Menghindari validasi unik untuk dirinya sendiri
         ], [
             'nik.required' => 'NIK wajib diisi.',

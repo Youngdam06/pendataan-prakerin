@@ -10,9 +10,9 @@
                         <i class="material-icons opacity-10">weekend</i>
                     </div>
                     <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">Jumlah Instansi</p>
+                        <p class="text-sm mb-0 text-capitalize text-bold text-dark" >Jumlah Instansi</p>
                         {{-- menampilkan hasil count di controller --}}
-                        <h4 class="mb-0">{{ $instansi }}</h4>
+                        <h4 class="mb-0 ">{{ $instansi }}</h4>
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
@@ -26,7 +26,7 @@
                         <i class="material-icons opacity-10">person</i>
                     </div>
                     <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">Jumlah Siswa</p>
+                        <p class="text-sm mb-0 text-capitalize text-bold text-dark">Jumlah Siswa</p>
                         <h4 class="mb-0">{{ $siswa }}</h4>
                     </div>
                 </div>
@@ -40,8 +40,8 @@
                         <i class="material-icons opacity-10">person</i>
                     </div>
                     <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">Jumlah</p>
-                        <p class="text-sm mb-0 text-capitalize">Pembimbing</p>
+                        <p class="text-sm mb-0 text-capitalize text-bold text-dark">Jumlah</p>
+                        <p class="text-sm mb-0 text-capitalize text-bold text-dark">Pembimbing</p>
                         <h4 class="mb-0">{{ $pembimbing }}</h4>
                     </div>
                 </div>
@@ -55,8 +55,8 @@
                         <i class="material-icons opacity-10">schedule</i>
                     </div>
                     <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">Jumlah</p>
-                        <p class="text-sm mb-0 text-capitalize">Siswa Prakerin</p>
+                        <p class="text-sm mb-0 text-capitalize text-bold text-dark">Jumlah</p>
+                        <p class="text-sm mb-0 text-capitalize text-bold text-dark">Siswa Prakerin</p>
                         <h4 class="mb-0">{{ $prakerin }}</h4>
                     </div>
                 </div>
@@ -77,35 +77,35 @@
                     <h6 class="text-white text-capitalize ps-3">Data Prakerin Siswa</h6>
                 </div>
             </div>
-            <div class="card-body px-3 pb-2">
-                <div class="table-responsive p-0">
+            <div class="card-body px-3 pb-2 text-dark">
+                <div class="table-responsive p-0 text-dark">
                     {{-- tabel untuk menampilkan data siswa yang prakerin --}}
-                    <table id="table-prakerin" class="table table-bordered">
+                    <table id="table-prakerin" class="table table-bordered text-dark">
                         <thead>
                             <tr>
-                                <th class="align-middle text-center text-sm">No</th>
-                                <th class="align-middle text-center text-sm">Tanggal Awal</th>
-                                <th class="align-middle text-center text-sm">Tanggal Akhir</th>
-                                <th class="align-middle text-center text-sm">NIS Siswa</th>
-                                <th class="align-middle text-center text-sm">Nama Siswa</th>
-                                <th class="align-middle text-center text-sm">Kelas</th>
-                                <th class="align-middle text-center text-sm">Jurusan</th>
-                                <th class="align-middle text-center text-sm">Nama Instansi</th>
-                                <th class="align-middle text-center text-sm">Nama Pembimbing</th>
+                                <th class="align-middle text-center text-sm text-dark">No</th>
+                                <th class="align-middle text-center text-sm text-dark">Tanggal Awal</th>
+                                <th class="align-middle text-center text-sm text-dark">Tanggal Akhir</th>
+                                <th class="align-middle text-center text-sm text-dark">NIS Siswa</th>
+                                <th class="align-middle text-center text-sm text-dark">Nama Siswa</th>
+                                <th class="align-middle text-center text-sm text-dark">Kelas</th>
+                                <th class="align-middle text-center text-sm text-dark">Jurusan</th>
+                                <th class="align-middle text-center text-sm text-dark">Nama Instansi</th>
+                                <th class="align-middle text-center text-sm text-dark">Nama Pembimbing</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($prakerin1 as $data)
                                 <tr>
-                                    <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                                    <td class="align-middle text-center text-sm">{{ date('d M Y', strtotime($data->tanggal_awal)) }}</td>
-                                    <td class="align-middle text-center text-sm">{{ date('d M Y', strtotime($data->tanggal_akhir)) }}</td>
-                                    <td class="align-middle text-center text-sm">{{ $data->nis }}</td>
-                                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama }}</td>
-                                    <td class="align-middle text-center text-sm">{{ $data->kelas }}</td>
-                                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
-                                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_instansi }}</td>
-                                    <td class="align-middle text-center text-sm" style="white-space: pre-wrap;">{{ $data->nama_pembimbing }}</td>
+                                    <td class="align-middle text-center text-sm text-dark">{{ $loop->iteration }}</td>
+                                    <td class="align-middle text-center text-sm text-dark">{{ date('d M Y', strtotime($data->tanggal_awal)) }}</td>
+                                    <td class="align-middle text-center text-sm text-dark">{{ date('d M Y', strtotime($data->tanggal_akhir)) }}</td>
+                                    <td class="align-middle text-center text-sm text-dark">{{ $data->nis }}</td>
+                                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama }}</td>
+                                    <td class="align-middle text-center text-sm text-dark">{{ $data->kelas }}</td>
+                                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->jurusan }}</td>
+                                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama_instansi }}</td>
+                                    <td class="align-middle text-center text-sm text-dark" style="white-space: pre-wrap;">{{ $data->nama_pembimbing }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -129,7 +129,9 @@
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#table-prakerin').DataTable();
+        $('#table-prakerin').DataTable(
+            
+        );
     });
 </script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>

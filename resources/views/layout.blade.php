@@ -19,6 +19,11 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 <!-- CSS Files -->
 <link id="pagestyle" href="/assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+<style>
+    .dataTables_filter label input {
+        color: #000000; /* Gantilah #your_color dengan kode warna atau nama warna yang diinginkan */
+    }
+</style>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -70,10 +75,10 @@
             <span class="nav-link-text ms-1">Kelola Data</span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="{{Route('datasiswa.index')}}">Kelola Data Siswa</a></li>
-            <li><a class="dropdown-item" href="{{Route('datapembimbing.index')}}">Kelola Data Pembimbing</a></li>
-            <li><a class="dropdown-item" href="{{Route('datainstansi.index')}}">Kelola Data Instansi</a></li>
-            <li><a class="dropdown-item" href="{{Route('dataprakerin.index')}}">Kelola Data Prakerin</a></li>
+            <li><a class="dropdown-item text-dark" href="{{Route('datasiswa.index')}}">Kelola Data Siswa</a></li>
+            <li><a class="dropdown-item text-dark" href="{{Route('datapembimbing.index')}}">Kelola Data Pembimbing</a></li>
+            <li><a class="dropdown-item text-dark" href="{{Route('datainstansi.index')}}">Kelola Data Instansi</a></li>
+            <li><a class="dropdown-item text-dark" href="{{Route('dataprakerin.index')}}">Kelola Data Prakerin</a></li>
         </ul>
     </li>
     @endif
@@ -100,9 +105,9 @@
         <span class="nav-link-text ms-1">Laporan Data</span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="{{Route('laporansiswa')}}">Laporan Data Siswa</a></li>
-            <li><a class="dropdown-item" href="{{Route('laporanpembimbing')}}">Laporan Data Pembimbing</a></li>
-            <li><a class="dropdown-item" href="{{Route('laporanprakerin')}}">Laporan Data Prakerin</a></li>
+            <li><a class="dropdown-item text-dark" href="{{Route('laporansiswa')}}">Laporan Data Siswa</a></li>
+            <li><a class="dropdown-item text-dark" href="{{Route('laporanpembimbing')}}">Laporan Data Pembimbing</a></li>
+            <li><a class="dropdown-item text-dark" href="{{Route('laporanprakerin')}}">Laporan Data Prakerin</a></li>
         </ul>
     </li>
     @endif
@@ -137,7 +142,7 @@
                     <span class="d-sm-inline d-none"></span>
                     <a href="/logout" id="logOutButton" class="nav-link text-body font-weight-bold px-0">
                     <i class="fa fa-user me-sm-1"></i>
-                    <span class="d-sm-inline d-none">Log out</span>
+                    <span class="d-sm-inline d-none text-bold text-dark">Log out</span>
                     </a>
                 </li>
             </div>

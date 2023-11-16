@@ -19,8 +19,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form role="form" action="{{ route('dataprakerin.update', $prakerin->id) }}"
-                                class="text-start" method="POST">
+                            <form role="form" action="{{ route('dataprakerin.update', $prakerin->id) }}" class="text-start" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <label class="form-label">Tanggal Awal</label>
